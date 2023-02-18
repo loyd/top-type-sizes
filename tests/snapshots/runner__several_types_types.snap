@@ -9,43 +9,55 @@ expression: types
         align: 8,
         kind: Struct(
             StructType {
-                fields: [
-                    Field {
-                        name: ".buf",
-                        size: 16,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".width",
-                        size: 16,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".precision",
-                        size: 16,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".flags",
-                        size: 4,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".fill",
-                        size: 4,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".align",
-                        size: 1,
-                        align: None,
-                        offset: None,
-                    },
+                items: [
+                    Field(
+                        Field {
+                            name: ".buf",
+                            size: 16,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".width",
+                            size: 16,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".precision",
+                            size: 16,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".flags",
+                            size: 4,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".fill",
+                            size: 4,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".align",
+                            size: 1,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
                 ],
             },
         ),
@@ -59,19 +71,23 @@ expression: types
         align: 8,
         kind: Struct(
             StructType {
-                fields: [
-                    Field {
-                        name: ".format",
-                        size: 48,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".position",
-                        size: 8,
-                        align: None,
-                        offset: None,
-                    },
+                items: [
+                    Field(
+                        Field {
+                            name: ".format",
+                            size: 48,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".position",
+                            size: 8,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
                 ],
             },
         ),
@@ -83,25 +99,31 @@ expression: types
         align: 8,
         kind: Struct(
             StructType {
-                fields: [
-                    Field {
-                        name: ".fmt",
-                        size: 16,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".pieces",
-                        size: 16,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".args",
-                        size: 16,
-                        align: None,
-                        offset: None,
-                    },
+                items: [
+                    Field(
+                        Field {
+                            name: ".fmt",
+                            size: 16,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".pieces",
+                            size: 16,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".args",
+                            size: 16,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
                 ],
             },
         ),
@@ -113,37 +135,47 @@ expression: types
         align: 8,
         kind: Struct(
             StructType {
-                fields: [
-                    Field {
-                        name: ".precision",
-                        size: 16,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".width",
-                        size: 16,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".flags",
-                        size: 4,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".fill",
-                        size: 4,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".align",
-                        size: 1,
-                        align: None,
-                        offset: None,
-                    },
+                items: [
+                    Field(
+                        Field {
+                            name: ".precision",
+                            size: 16,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".width",
+                            size: 16,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".flags",
+                            size: 4,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".fill",
+                            size: 4,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".align",
+                            size: 1,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
                 ],
             },
         ),
@@ -200,25 +232,31 @@ expression: types
         align: 8,
         kind: Struct(
             StructType {
-                fields: [
-                    Field {
-                        name: ".exception_class",
-                        size: 8,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".exception_cleanup",
-                        size: 8,
-                        align: None,
-                        offset: None,
-                    },
-                    Field {
-                        name: ".private",
-                        size: 16,
-                        align: None,
-                        offset: None,
-                    },
+                items: [
+                    Field(
+                        Field {
+                            name: ".exception_class",
+                            size: 8,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".exception_cleanup",
+                            size: 8,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                    Field(
+                        Field {
+                            name: ".private",
+                            size: 16,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
                 ],
             },
         ),

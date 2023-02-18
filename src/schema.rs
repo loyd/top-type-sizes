@@ -19,7 +19,7 @@ pub enum TypeKind {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct StructType {
-    pub fields: Vec<Field>,
+    pub items: Vec<FieldOrPadding>,
 }
 
 // Enum
@@ -34,13 +34,13 @@ pub struct EnumType {
 pub struct EnumVariant {
     pub name: String,
     pub size: Size,
-    pub items: Vec<EnumVariantItem>,
+    pub items: Vec<FieldOrPadding>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum EnumVariantItem {
-    Padding(Size),
+pub enum FieldOrPadding {
     Field(Field),
+    Padding(Size),
 }
 
 #[derive(Debug, PartialEq, Eq)]

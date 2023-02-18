@@ -52,35 +52,41 @@ fn offset(input: &str) -> IResult<&str, Size> {
 // * field `.file`: 16 bytes
 // * field `.0`: 24 bytes, alignment: 8 bytes
 // * field `.buf`: 16 bytes, offset: 0 bytes, alignment: 8 bytes
-fn field(level: Level) -> impl FnMut(&str) -> IResult<&str, Field> {
-    move |input| {
-        let (input, _) = indent(level)(input)?;
-        let (input, (_, name, _, size)) = tuple((tag("field "), name, tag(": "), bytes))(input)?;
-        let (input, offset) = opt(preceded(tag(", "), offset))(input)?;
-        let (input, align) = opt(preceded(tag(", "), alignment))(input)?;
+fn field(input: &str) -> IResult<&str, Field> {
+    let (input, (_, name, _, size)) = tuple((tag("field "), name, tag(": "), bytes))(input)?;
+    let (input, offset) = opt(preceded(tag(", "), offset))(input)?;
+    let (input, align) = opt(preceded(tag(", "), alignment))(input)?;
 
-        let field = Field {
-            name: name.into(),
-            size,
-            align,
-            offset,
-        };
+    let field = Field {
+        name: name.into(),
+        size,
+        align,
+        offset,
+    };
 
-        Ok((input, field))
-    }
+    Ok((input, field))
+}
+
+// Example: "padding: 16 bytes"
+fn padding(input: &str) -> IResult<&str, Size> {
+    preceded(tag("padding: "), bytes)(input)
+}
+
+fn field_or_padding<'a>(level: Level) -> impl FnMut(&'a str) -> IResult<&str, FieldOrPadding> {
+    preceded(
+        indent(level),
+        alt((
+            map(field, FieldOrPadding::Field),
+            map(padding, FieldOrPadding::Padding),
+        )),
+    )
 }
 
 // Example:
 //     field `.file`: 16 bytes
 //     field `.line`: 4 bytes
 fn struct_type(input: &str) -> IResult<&str, StructType> {
-    map(many1(field(1)), |fields| StructType { fields })(input)
-}
-
-// Example:
-//         padding: 16 bytes
-fn enum_variant_padding(input: &str) -> IResult<&str, Size> {
-    preceded(preceded(indent(2), tag("padding: ")), bytes)(input)
+    map(many1(field_or_padding(1)), |items| StructType { items })(input)
 }
 
 // Example:
@@ -90,11 +96,7 @@ fn enum_variant_padding(input: &str) -> IResult<&str, Size> {
 fn enum_variant(input: &str) -> IResult<&str, EnumVariant> {
     let (input, _) = indent(1)(input)?;
     let (input, (_, name, _, size)) = tuple((tag("variant "), name, tag(": "), bytes))(input)?;
-
-    let (input, items) = many0(alt((
-        map(enum_variant_padding, EnumVariantItem::Padding),
-        map(field(2), EnumVariantItem::Field),
-    )))(input)?;
+    let (input, items) = many0(field_or_padding(2))(input)?;
 
     let enum_variant = EnumVariant {
         name: name.into(),

@@ -1,0 +1,35 @@
+print-type-size type: `unix::linux_like::linux::gnu::timex`: 208 bytes, alignment: 8 bytes
+print-type-size     field `.modes`: 4 bytes
+print-type-size     padding: 4 bytes
+print-type-size     field `.offset`: 8 bytes, alignment: 8 bytes
+print-type-size     field `.freq`: 8 bytes
+print-type-size     field `.maxerror`: 8 bytes
+print-type-size     field `.esterror`: 8 bytes
+print-type-size     field `.status`: 4 bytes
+print-type-size     padding: 4 bytes
+print-type-size     field `.constant`: 8 bytes, alignment: 8 bytes
+print-type-size     field `.precision`: 8 bytes
+print-type-size     field `.tolerance`: 8 bytes
+print-type-size     field `.time`: 16 bytes
+print-type-size     field `.tick`: 8 bytes
+print-type-size     field `.ppsfreq`: 8 bytes
+print-type-size     field `.jitter`: 8 bytes
+print-type-size     field `.shift`: 4 bytes
+print-type-size     padding: 4 bytes
+print-type-size     field `.stabil`: 8 bytes, alignment: 8 bytes
+print-type-size     field `.jitcnt`: 8 bytes
+print-type-size     field `.calcnt`: 8 bytes
+print-type-size     field `.errcnt`: 8 bytes
+print-type-size     field `.stbcnt`: 8 bytes
+print-type-size     field `.tai`: 4 bytes
+print-type-size     field `.__unused1`: 4 bytes
+print-type-size     field `.__unused2`: 4 bytes
+print-type-size     field `.__unused3`: 4 bytes
+print-type-size     field `.__unused4`: 4 bytes
+print-type-size     field `.__unused5`: 4 bytes
+print-type-size     field `.__unused6`: 4 bytes
+print-type-size     field `.__unused7`: 4 bytes
+print-type-size     field `.__unused8`: 4 bytes
+print-type-size     field `.__unused9`: 4 bytes
+print-type-size     field `.__unused10`: 4 bytes
+print-type-size     field `.__unused11`: 4 bytes
