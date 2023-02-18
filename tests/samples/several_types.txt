@@ -1,0 +1,32 @@
+print-type-size type: `std::fmt::Formatter<'_>`: 64 bytes, alignment: 8 bytes
+print-type-size     field `.buf`: 16 bytes
+print-type-size     field `.width`: 16 bytes
+print-type-size     field `.precision`: 16 bytes
+print-type-size     field `.flags`: 4 bytes
+print-type-size     field `.fill`: 4 bytes
+print-type-size     field `.align`: 1 bytes
+print-type-size     end padding: 7 bytes
+print-type-size type: `std::fmt::rt::v1::Argument`: 56 bytes, alignment: 8 bytes
+print-type-size     field `.format`: 48 bytes
+print-type-size     field `.position`: 8 bytes
+print-type-size type: `std::fmt::Arguments<'_>`: 48 bytes, alignment: 8 bytes
+print-type-size     field `.fmt`: 16 bytes
+print-type-size     field `.pieces`: 16 bytes
+print-type-size     field `.args`: 16 bytes
+print-type-size type: `std::fmt::rt::v1::FormatSpec`: 48 bytes, alignment: 8 bytes
+print-type-size     field `.precision`: 16 bytes
+print-type-size     field `.width`: 16 bytes
+print-type-size     field `.flags`: 4 bytes
+print-type-size     field `.fill`: 4 bytes
+print-type-size     field `.align`: 1 bytes
+print-type-size     end padding: 7 bytes
+print-type-size type: `std::result::Result<std::string::String, std::env::VarError>`: 32 bytes, alignment: 8 bytes
+print-type-size     discriminant: 8 bytes
+print-type-size     variant `Ok`: 24 bytes
+print-type-size         field `.0`: 24 bytes
+print-type-size     variant `Err`: 24 bytes
+print-type-size         field `.0`: 24 bytes
+print-type-size type: `unwind::libunwind::_Unwind_Exception`: 32 bytes, alignment: 8 bytes
+print-type-size     field `.exception_class`: 8 bytes
+print-type-size     field `.exception_cleanup`: 8 bytes
+print-type-size     field `.private`: 16 bytes

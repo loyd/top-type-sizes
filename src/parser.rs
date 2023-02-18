@@ -54,9 +54,8 @@ fn offset(input: &str) -> IResult<&str, Size> {
 // * field `.buf`: 16 bytes, offset: 0 bytes, alignment: 8 bytes
 fn field(level: Level) -> impl FnMut(&str) -> IResult<&str, Field> {
     move |input| {
-        let (input, (_, _, name, _, size)) =
-            tuple((indent(level), tag("field "), name, tag(": "), bytes))(input)?;
-
+        let (input, _) = indent(level)(input)?;
+        let (input, (_, name, _, size)) = tuple((tag("field "), name, tag(": "), bytes))(input)?;
         let (input, offset) = opt(preceded(tag(", "), offset))(input)?;
         let (input, align) = opt(preceded(tag(", "), alignment))(input)?;
 
@@ -89,8 +88,8 @@ fn enum_variant_padding(input: &str) -> IResult<&str, Size> {
 //         padding: 16 bytes
 //         field `.0`: 24 bytes, alignment: 8 bytes
 fn enum_variant(input: &str) -> IResult<&str, EnumVariant> {
-    let (input, (_, _, name, _, size)) =
-        tuple((indent(1), tag("variant "), name, tag(": "), bytes))(input)?;
+    let (input, _) = indent(1)(input)?;
+    let (input, (_, name, _, size)) = tuple((tag("variant "), name, tag(": "), bytes))(input)?;
 
     let (input, items) = many0(alt((
         map(enum_variant_padding, EnumVariantItem::Padding),
@@ -158,7 +157,7 @@ fn type_(input: &str) -> IResult<&str, Type> {
 }
 
 fn types(input: &str) -> IResult<&str, Vec<Type>> {
-    many0(type_)(input)
+    many0(preceded(opt(newline), type_))(input)
 }
 
 /// Parses refined (without the prefix) input.
@@ -169,14 +168,17 @@ pub fn parse(input: &str) -> eyre::Result<Vec<Type>> {
         .map_err(|err| eyre::eyre!(err.to_string()))?;
 
     // TODO: better approach?
-    if input.is_empty() {
-        Ok(types)
-    } else {
-        Err(eyre::eyre!(
-            "cannot parse: \n{}",
-            &input[..input.len().min(100)]
-        ))
+    if !input.is_empty() {
+        // Print next N lines.
+        let len = input
+            .split_terminator('\n')
+            .take(10)
+            .fold(0, |sum, line| sum + line.len());
+
+        return Err(eyre::eyre!("cannot parse: \n{}", &input[..len]));
     }
+
+    Ok(types)
 }
 
 #[cfg(test)]

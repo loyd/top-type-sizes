@@ -18,3 +18,4 @@ test_sample!(command);
 test_sample!(control_flow);
 test_sample!(alignment_enum);
 test_sample!(tokio_udp);
+test_sample!(several_types);

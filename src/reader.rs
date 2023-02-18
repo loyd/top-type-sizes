@@ -1,12 +1,11 @@
-use std::io::{BufRead, BufReader, Read};
+use std::io::BufRead;
 
 /// Strips the `print-type-size ` prefix and ignores unprefixed lines.
-pub fn read(rd: impl Read) -> eyre::Result<String> {
-    let mut reader = BufReader::new(rd);
+pub fn read(mut rd: impl BufRead) -> eyre::Result<String> {
     let mut line = String::with_capacity(4096);
     let mut result = String::new();
 
-    while reader.read_line(&mut line)? > 0 {
+    while rd.read_line(&mut line)? > 0 {
         let Some(refined_line) = line.strip_prefix("print-type-size ") else {
             continue
         };
