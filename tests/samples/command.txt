@@ -1,0 +1,18 @@
+print-type-size type: `std::sys::unix::process::process_common::Command`: 208 bytes, alignment: 8 bytes
+print-type-size     field `.env`: 32 bytes
+print-type-size     field `.cwd`: 16 bytes
+print-type-size     field `.groups`: 16 bytes
+print-type-size     field `.program`: 16 bytes
+print-type-size     field `.args`: 24 bytes
+print-type-size     field `.argv`: 24 bytes
+print-type-size     field `.closures`: 24 bytes
+print-type-size     field `.stdin`: 8 bytes
+print-type-size     field `.stdout`: 8 bytes
+print-type-size     field `.stderr`: 8 bytes
+print-type-size     field `.uid`: 8 bytes
+print-type-size     field `.gid`: 8 bytes
+print-type-size     field `.pgroup`: 8 bytes
+print-type-size     field `.program_kind`: 1 bytes
+print-type-size     field `.saw_nul`: 1 bytes
+print-type-size     field `.create_pidfd`: 1 bytes
+print-type-size     end padding: 5 bytes

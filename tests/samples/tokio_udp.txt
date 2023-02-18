@@ -1,0 +1,24 @@
+print-type-size type: `[async fn body@/home/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-1.24.1/src/net/udp.rs:1345:86: 1350:6]`: 200 bytes, alignment: 8 bytes
+print-type-size     discriminant: 1 bytes
+print-type-size     variant `Unresumed`: 192 bytes
+print-type-size         padding: 159 bytes
+print-type-size         field `.buf`: 16 bytes, alignment: 8 bytes
+print-type-size         padding: 8 bytes
+print-type-size         field `.self`: 8 bytes, alignment: 8 bytes
+print-type-size     variant `Returned`: 192 bytes
+print-type-size         padding: 159 bytes
+print-type-size         field `.buf`: 16 bytes, alignment: 8 bytes
+print-type-size         padding: 8 bytes
+print-type-size         field `.self`: 8 bytes, alignment: 8 bytes
+print-type-size     variant `Panicked`: 192 bytes
+print-type-size         padding: 159 bytes
+print-type-size         field `.buf`: 16 bytes, alignment: 8 bytes
+print-type-size         padding: 8 bytes
+print-type-size         field `.self`: 8 bytes, alignment: 8 bytes
+print-type-size     variant `Suspend0`: 184 bytes
+print-type-size         field `.buf`: 16 bytes, offset: 0 bytes, alignment: 8 bytes
+print-type-size         field `.__awaitee`: 144 bytes
+print-type-size         field `.buf`: 16 bytes
+print-type-size         field `.self`: 8 bytes
+print-type-size         field `.self`: 8 bytes
+print-type-size     end padding: 7 bytes

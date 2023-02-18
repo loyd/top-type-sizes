@@ -1,0 +1,5 @@
+print-type-size type: `std::ops::ControlFlow<std::option::Option<std::convert::Infallible>, alloc::collections::btree::navigate::LazyLeafHandle<alloc::collections::btree::node::marker::Dying, std::ffi::OsString, std::option::Option<std::ffi::OsString>>>`: 32 bytes, alignment: 8 bytes
+print-type-size     variant `Continue`: 32 bytes
+print-type-size         field `.0`: 32 bytes
+print-type-size     variant `Break`: 0 bytes
+print-type-size         field `.0`: 0 bytes

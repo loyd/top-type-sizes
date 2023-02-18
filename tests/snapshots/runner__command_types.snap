@@ -1,0 +1,116 @@
+---
+source: tests/runner.rs
+expression: types
+---
+[
+    Type {
+        name: "std::sys::unix::process::process_common::Command",
+        size: 208,
+        align: 8,
+        kind: Struct(
+            StructType {
+                fields: [
+                    Field {
+                        name: ".env",
+                        size: 32,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".cwd",
+                        size: 16,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".groups",
+                        size: 16,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".program",
+                        size: 16,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".args",
+                        size: 24,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".argv",
+                        size: 24,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".closures",
+                        size: 24,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".stdin",
+                        size: 8,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".stdout",
+                        size: 8,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".stderr",
+                        size: 8,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".uid",
+                        size: 8,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".gid",
+                        size: 8,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".pgroup",
+                        size: 8,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".program_kind",
+                        size: 1,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".saw_nul",
+                        size: 1,
+                        align: None,
+                        offset: None,
+                    },
+                    Field {
+                        name: ".create_pidfd",
+                        size: 1,
+                        align: None,
+                        offset: None,
+                    },
+                ],
+            },
+        ),
+        end_padding: Some(
+            5,
+        ),
+    },
+]
