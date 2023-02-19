@@ -87,7 +87,7 @@ impl Formatter {
     }
 }
 
-fn get_size(item: &FieldOrPadding) -> Size {
+fn get_size(item: &FieldOrPadding) -> usize {
     match item {
         FieldOrPadding::Field(field) => field.size,
         FieldOrPadding::Padding(padding) => *padding,

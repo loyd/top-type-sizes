@@ -3,6 +3,7 @@ use std::cmp::Reverse;
 use crate::{options::Options, schema::*};
 
 // TODO: link large types (parent-child).
+// TODO: merge types with common prefix and similar layouts.
 
 fn merge_variants(variants: Vec<EnumVariant>) -> Vec<EnumVariant> {
     if variants.len() <= 1 {

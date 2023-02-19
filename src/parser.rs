@@ -34,17 +34,17 @@ fn name(input: &str) -> IResult<&str, &str> {
 }
 
 // Example: "152 bytes"
-fn bytes(input: &str) -> IResult<&str, Size> {
+fn bytes(input: &str) -> IResult<&str, usize> {
     terminated(map_res(digit1, |s: &str| s.parse()), tag(" bytes"))(input)
 }
 
 // Example: "alignment: 152 bytes"
-fn alignment(input: &str) -> IResult<&str, Size> {
+fn alignment(input: &str) -> IResult<&str, usize> {
     preceded(tag("alignment: "), bytes)(input)
 }
 
 // Example: "offset: 0 bytes"
-fn offset(input: &str) -> IResult<&str, Size> {
+fn offset(input: &str) -> IResult<&str, usize> {
     preceded(tag("offset: "), bytes)(input)
 }
 
@@ -69,7 +69,7 @@ fn field(input: &str) -> IResult<&str, Field> {
 }
 
 // Example: "padding: 16 bytes"
-fn padding(input: &str) -> IResult<&str, Size> {
+fn padding(input: &str) -> IResult<&str, usize> {
     preceded(tag("padding: "), bytes)(input)
 }
 
