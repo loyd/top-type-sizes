@@ -1,5 +1,6 @@
 [package]
 name = "top-type-sizes"
+description = "Makes -Zprint-type-size more useful"
 version = "0.1.0"
 authors = ["Paul Loyd <pavelko95@gmail.com>"]
 license = "MIT"
