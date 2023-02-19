@@ -12,7 +12,7 @@ Features:
 * Sorts fields by size (`-s`).
 * Hides small fields (`-h`).
 * Hides wrappers like `MaybeUninit` and custom ones (`-w`).
-* Filters by type names (`-f` and '-e').
+* Filters by type names (`-f` and `-e`).
 * Limits output (`-l`).
 
 ## Usage
