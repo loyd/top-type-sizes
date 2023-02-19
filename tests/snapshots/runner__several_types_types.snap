@@ -12,7 +12,7 @@ expression: types
                 items: [
                     Field(
                         Field {
-                            name: ".buf",
+                            name: "buf",
                             size: 16,
                             align: None,
                             offset: None,
@@ -20,7 +20,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".width",
+                            name: "width",
                             size: 16,
                             align: None,
                             offset: None,
@@ -28,7 +28,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".precision",
+                            name: "precision",
                             size: 16,
                             align: None,
                             offset: None,
@@ -36,7 +36,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".flags",
+                            name: "flags",
                             size: 4,
                             align: None,
                             offset: None,
@@ -44,7 +44,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".fill",
+                            name: "fill",
                             size: 4,
                             align: None,
                             offset: None,
@@ -52,7 +52,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".align",
+                            name: "align",
                             size: 1,
                             align: None,
                             offset: None,
@@ -74,7 +74,7 @@ expression: types
                 items: [
                     Field(
                         Field {
-                            name: ".format",
+                            name: "format",
                             size: 48,
                             align: None,
                             offset: None,
@@ -82,7 +82,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".position",
+                            name: "position",
                             size: 8,
                             align: None,
                             offset: None,
@@ -102,7 +102,7 @@ expression: types
                 items: [
                     Field(
                         Field {
-                            name: ".fmt",
+                            name: "fmt",
                             size: 16,
                             align: None,
                             offset: None,
@@ -110,7 +110,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".pieces",
+                            name: "pieces",
                             size: 16,
                             align: None,
                             offset: None,
@@ -118,7 +118,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".args",
+                            name: "args",
                             size: 16,
                             align: None,
                             offset: None,
@@ -138,7 +138,7 @@ expression: types
                 items: [
                     Field(
                         Field {
-                            name: ".precision",
+                            name: "precision",
                             size: 16,
                             align: None,
                             offset: None,
@@ -146,7 +146,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".width",
+                            name: "width",
                             size: 16,
                             align: None,
                             offset: None,
@@ -154,7 +154,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".flags",
+                            name: "flags",
                             size: 4,
                             align: None,
                             offset: None,
@@ -162,7 +162,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".fill",
+                            name: "fill",
                             size: 4,
                             align: None,
                             offset: None,
@@ -170,7 +170,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".align",
+                            name: "align",
                             size: 1,
                             align: None,
                             offset: None,
@@ -199,7 +199,7 @@ expression: types
                         items: [
                             Field(
                                 Field {
-                                    name: ".0",
+                                    name: "0",
                                     size: 24,
                                     align: None,
                                     offset: None,
@@ -213,7 +213,7 @@ expression: types
                         items: [
                             Field(
                                 Field {
-                                    name: ".0",
+                                    name: "0",
                                     size: 24,
                                     align: None,
                                     offset: None,
@@ -235,7 +235,7 @@ expression: types
                 items: [
                     Field(
                         Field {
-                            name: ".exception_class",
+                            name: "exception_class",
                             size: 8,
                             align: None,
                             offset: None,
@@ -243,7 +243,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".exception_cleanup",
+                            name: "exception_cleanup",
                             size: 8,
                             align: None,
                             offset: None,
@@ -251,7 +251,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".private",
+                            name: "private",
                             size: 16,
                             align: None,
                             offset: None,

@@ -58,7 +58,8 @@ fn field(input: &str) -> IResult<&str, Field> {
     let (input, align) = opt(preceded(tag(", "), alignment))(input)?;
 
     let field = Field {
-        name: name.into(),
+        // Remove useless leading `.`.
+        name: name.trim_start_matches('.').into(),
         size,
         align,
         offset,

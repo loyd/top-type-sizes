@@ -17,11 +17,7 @@ impl Formatter {
 
         match field {
             FieldOrPadding::Field(field) => {
-                // Remove useless leading `.`.
-                // TODO: it should be in the parser.
-                let name = field.name.trim_start_matches('.');
-
-                let _ = write!(self.o, "{indent}{:>5} {}", field.size, name);
+                let _ = write!(self.o, "{indent}{:>5} {}", field.size, field.name);
 
                 if let Some(align) = field.align {
                     let _ = write!(self.o, " align={align}");
@@ -91,7 +87,6 @@ impl Formatter {
     }
 }
 
-// TODO: should it be in the transformer?
 fn is_zero_sized(item: &FieldOrPadding) -> bool {
     match item {
         FieldOrPadding::Field(field) => field.size == 0,
@@ -100,9 +95,8 @@ fn is_zero_sized(item: &FieldOrPadding) -> bool {
 }
 
 fn is_wrapping_variant(variant: &EnumVariant) -> bool {
-    // TODO: don't forget to remove `.` if refined in the parser.
     variant.items.len() == 1
-        && matches!(&variant.items[0], FieldOrPadding::Field(f) if f.name == ".0")
+        && matches!(&variant.items[0], FieldOrPadding::Field(f) if f.name == "0")
 }
 
 pub fn format(mut types: Vec<Type>, options: &Options) -> String {

@@ -12,7 +12,7 @@ expression: types
                 items: [
                     Field(
                         Field {
-                            name: ".env",
+                            name: "env",
                             size: 32,
                             align: None,
                             offset: None,
@@ -20,7 +20,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".cwd",
+                            name: "cwd",
                             size: 16,
                             align: None,
                             offset: None,
@@ -28,7 +28,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".groups",
+                            name: "groups",
                             size: 16,
                             align: None,
                             offset: None,
@@ -36,7 +36,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".program",
+                            name: "program",
                             size: 16,
                             align: None,
                             offset: None,
@@ -44,7 +44,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".args",
+                            name: "args",
                             size: 24,
                             align: None,
                             offset: None,
@@ -52,7 +52,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".argv",
+                            name: "argv",
                             size: 24,
                             align: None,
                             offset: None,
@@ -60,7 +60,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".closures",
+                            name: "closures",
                             size: 24,
                             align: None,
                             offset: None,
@@ -68,7 +68,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".stdin",
+                            name: "stdin",
                             size: 8,
                             align: None,
                             offset: None,
@@ -76,7 +76,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".stdout",
+                            name: "stdout",
                             size: 8,
                             align: None,
                             offset: None,
@@ -84,7 +84,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".stderr",
+                            name: "stderr",
                             size: 8,
                             align: None,
                             offset: None,
@@ -92,7 +92,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".uid",
+                            name: "uid",
                             size: 8,
                             align: None,
                             offset: None,
@@ -100,7 +100,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".gid",
+                            name: "gid",
                             size: 8,
                             align: None,
                             offset: None,
@@ -108,7 +108,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".pgroup",
+                            name: "pgroup",
                             size: 8,
                             align: None,
                             offset: None,
@@ -116,7 +116,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".program_kind",
+                            name: "program_kind",
                             size: 1,
                             align: None,
                             offset: None,
@@ -124,7 +124,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".saw_nul",
+                            name: "saw_nul",
                             size: 1,
                             align: None,
                             offset: None,
@@ -132,7 +132,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".create_pidfd",
+                            name: "create_pidfd",
                             size: 1,
                             align: None,
                             offset: None,

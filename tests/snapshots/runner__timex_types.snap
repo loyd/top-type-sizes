@@ -12,7 +12,7 @@ expression: types
                 items: [
                     Field(
                         Field {
-                            name: ".modes",
+                            name: "modes",
                             size: 4,
                             align: None,
                             offset: None,
@@ -23,7 +23,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".offset",
+                            name: "offset",
                             size: 8,
                             align: Some(
                                 8,
@@ -33,7 +33,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".freq",
+                            name: "freq",
                             size: 8,
                             align: None,
                             offset: None,
@@ -41,7 +41,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".maxerror",
+                            name: "maxerror",
                             size: 8,
                             align: None,
                             offset: None,
@@ -49,7 +49,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".esterror",
+                            name: "esterror",
                             size: 8,
                             align: None,
                             offset: None,
@@ -57,7 +57,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".status",
+                            name: "status",
                             size: 4,
                             align: None,
                             offset: None,
@@ -68,7 +68,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".constant",
+                            name: "constant",
                             size: 8,
                             align: Some(
                                 8,
@@ -78,7 +78,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".precision",
+                            name: "precision",
                             size: 8,
                             align: None,
                             offset: None,
@@ -86,7 +86,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".tolerance",
+                            name: "tolerance",
                             size: 8,
                             align: None,
                             offset: None,
@@ -94,7 +94,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".time",
+                            name: "time",
                             size: 16,
                             align: None,
                             offset: None,
@@ -102,7 +102,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".tick",
+                            name: "tick",
                             size: 8,
                             align: None,
                             offset: None,
@@ -110,7 +110,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".ppsfreq",
+                            name: "ppsfreq",
                             size: 8,
                             align: None,
                             offset: None,
@@ -118,7 +118,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".jitter",
+                            name: "jitter",
                             size: 8,
                             align: None,
                             offset: None,
@@ -126,7 +126,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".shift",
+                            name: "shift",
                             size: 4,
                             align: None,
                             offset: None,
@@ -137,7 +137,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".stabil",
+                            name: "stabil",
                             size: 8,
                             align: Some(
                                 8,
@@ -147,7 +147,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".jitcnt",
+                            name: "jitcnt",
                             size: 8,
                             align: None,
                             offset: None,
@@ -155,7 +155,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".calcnt",
+                            name: "calcnt",
                             size: 8,
                             align: None,
                             offset: None,
@@ -163,7 +163,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".errcnt",
+                            name: "errcnt",
                             size: 8,
                             align: None,
                             offset: None,
@@ -171,7 +171,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".stbcnt",
+                            name: "stbcnt",
                             size: 8,
                             align: None,
                             offset: None,
@@ -179,7 +179,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".tai",
+                            name: "tai",
                             size: 4,
                             align: None,
                             offset: None,
@@ -187,7 +187,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused1",
+                            name: "__unused1",
                             size: 4,
                             align: None,
                             offset: None,
@@ -195,7 +195,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused2",
+                            name: "__unused2",
                             size: 4,
                             align: None,
                             offset: None,
@@ -203,7 +203,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused3",
+                            name: "__unused3",
                             size: 4,
                             align: None,
                             offset: None,
@@ -211,7 +211,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused4",
+                            name: "__unused4",
                             size: 4,
                             align: None,
                             offset: None,
@@ -219,7 +219,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused5",
+                            name: "__unused5",
                             size: 4,
                             align: None,
                             offset: None,
@@ -227,7 +227,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused6",
+                            name: "__unused6",
                             size: 4,
                             align: None,
                             offset: None,
@@ -235,7 +235,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused7",
+                            name: "__unused7",
                             size: 4,
                             align: None,
                             offset: None,
@@ -243,7 +243,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused8",
+                            name: "__unused8",
                             size: 4,
                             align: None,
                             offset: None,
@@ -251,7 +251,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused9",
+                            name: "__unused9",
                             size: 4,
                             align: None,
                             offset: None,
@@ -259,7 +259,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused10",
+                            name: "__unused10",
                             size: 4,
                             align: None,
                             offset: None,
@@ -267,7 +267,7 @@ expression: types
                     ),
                     Field(
                         Field {
-                            name: ".__unused11",
+                            name: "__unused11",
                             size: 4,
                             align: None,
                             offset: None,

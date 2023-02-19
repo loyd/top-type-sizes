@@ -22,7 +22,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".buf",
+                                    name: "buf",
                                     size: 16,
                                     align: Some(
                                         8,
@@ -35,7 +35,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".self",
+                                    name: "self",
                                     size: 8,
                                     align: Some(
                                         8,
@@ -54,7 +54,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".buf",
+                                    name: "buf",
                                     size: 16,
                                     align: Some(
                                         8,
@@ -67,7 +67,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".self",
+                                    name: "self",
                                     size: 8,
                                     align: Some(
                                         8,
@@ -86,7 +86,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".buf",
+                                    name: "buf",
                                     size: 16,
                                     align: Some(
                                         8,
@@ -99,7 +99,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".self",
+                                    name: "self",
                                     size: 8,
                                     align: Some(
                                         8,
@@ -115,7 +115,7 @@ expression: types
                         items: [
                             Field(
                                 Field {
-                                    name: ".buf",
+                                    name: "buf",
                                     size: 16,
                                     align: Some(
                                         8,
@@ -127,7 +127,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".__awaitee",
+                                    name: "__awaitee",
                                     size: 144,
                                     align: None,
                                     offset: None,
@@ -135,7 +135,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".buf",
+                                    name: "buf",
                                     size: 16,
                                     align: None,
                                     offset: None,
@@ -143,7 +143,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".self",
+                                    name: "self",
                                     size: 8,
                                     align: None,
                                     offset: None,
@@ -151,7 +151,7 @@ expression: types
                             ),
                             Field(
                                 Field {
-                                    name: ".self",
+                                    name: "self",
                                     size: 8,
                                     align: None,
                                     offset: None,

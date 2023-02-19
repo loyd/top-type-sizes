@@ -17,7 +17,7 @@ expression: types
                         items: [
                             Field(
                                 Field {
-                                    name: ".0",
+                                    name: "0",
                                     size: 32,
                                     align: None,
                                     offset: None,
@@ -31,7 +31,7 @@ expression: types
                         items: [
                             Field(
                                 Field {
-                                    name: ".0",
+                                    name: "0",
                                     size: 0,
                                     align: None,
                                     offset: None,
