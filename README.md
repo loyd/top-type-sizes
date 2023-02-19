@@ -51,47 +51,41 @@ OPTIONS:
 
 ## Example
 ```
-2032 [async fn body@/home/.cargo/registry/src/github.com-1ecc6299db9ec823/trust-dns-resolver-0.22.0/src/name_server/name_ser
-ver_pool.rs:310:1: 374:2] align=8
-    1 <discriminant>
- 2031 variant Suspend0
-    128 opts align=8 offset=0
-    128 opts
-     32 err
-     16 backoff
-     24 conns
-    216 request
-    504 busy
-    504 par_conns
-     24 conns
-    216 request
-      1 generator_field11
-      1 generator_field12
-      1 generator_field13
-      5 <padding>
-    216 request_cont align=8
-     16 __awaitee
- 1831 variant Suspend1
-    128 opts align=8 offset=0
-    128 opts
-     32 err
-     16 backoff
-     24 conns
-    216 request
-    504 busy
-    504 par_conns
-     24 conns
-    216 request
-      1 generator_field11
-      1 generator_field12
-      1 generator_field13
-      5 <padding>
-     24 requests align=8
-      8 __awaitee
- 1792 variant Unresumed, Returned, Panicked
-    127 <padding>
-    128 opts align=8
-   1296 <padding>
-     24 conns align=8
-    216 request
+3456 [async block@/home/.cargo/registry/src/github.com-1ecc6299db9ec823/trust-dns-resolver-0.22.0/src/name_server/name_server_pool.rs:256:23: 296:10] align=8
+      1 <discriminant>
+   3455 variant Suspend1
+        128 opts align=8 offset=0
+         16 datagram_conns
+         16 stream_conns
+        216 request
+        216 tcp_message
+          1 generator_field3
+          1 generator_field4
+          1 generator_field5
+          1 generator_field6
+          1 generator_field7
+          1 generator_field8
+          1 generator_field9
+          1 <padding>
+        200 udp_res align=8
+       2656 __awaitee
+   3255 variant Suspend0
+        128 opts align=8 offset=0
+         16 datagram_conns
+         16 stream_conns
+        216 request
+        216 tcp_message
+          3 <padding>
+          1 generator_field6 align=1
+          1 generator_field7
+          1 generator_field8
+          1 generator_field9
+          1 <padding>
+       2656 __awaitee align=8
+    592 variant Unresumed, Returned, Panicked
+        128 opts align=8 offset=0
+         16 datagram_conns
+         16 stream_conns
+        216 request
+        216 tcp_message
 ```

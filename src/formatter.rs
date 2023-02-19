@@ -17,7 +17,7 @@ impl Formatter {
 
         match field {
             FieldOrPadding::Field(field) => {
-                let _ = write!(self.o, "{indent}{:>5} {}", field.size, field.name);
+                let _ = write!(self.o, "{indent}{:>7} {}", field.size, field.name);
 
                 if let Some(align) = field.align {
                     let _ = write!(self.o, " align={align}");
@@ -29,7 +29,7 @@ impl Formatter {
                 let _ = writeln!(self.o);
             }
             FieldOrPadding::Padding(padding) => {
-                let _ = writeln!(self.o, "{indent}{padding:>5} <padding>");
+                let _ = writeln!(self.o, "{indent}{padding:>7} <padding>");
             }
         }
     }
@@ -42,18 +42,18 @@ impl Formatter {
 
     fn format_enum(&mut self, enum_: &EnumType) {
         if let Some(size) = enum_.discriminant_size {
-            let _ = writeln!(self.o, "{size:>5} <discriminant>");
+            let _ = writeln!(self.o, "{size:>7} <discriminant>");
         }
 
         for variant in &enum_.variants {
-            let _ = writeln!(self.o, "{:>5} variant {}", variant.size, variant.name);
+            let _ = writeln!(self.o, "{:>7} variant {}", variant.size, variant.name);
 
             if is_wrapping_variant(variant) {
                 continue;
             }
 
             for item in &variant.items {
-                self.format_field_or_padding(item, "  ");
+                self.format_field_or_padding(item, "    ");
             }
         }
     }
@@ -72,7 +72,7 @@ impl Formatter {
             }
 
             if let Some(padding) = type_.end_padding {
-                let _ = writeln!(self.o, "{padding:>5} <end padding>");
+                let _ = writeln!(self.o, "{padding:>7} <end padding>");
             }
 
             let _ = writeln!(self.o);
