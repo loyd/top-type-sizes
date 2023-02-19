@@ -1,4 +1,4 @@
-use std::cmp::Reverse;
+use std::{cmp::Reverse, collections::HashMap};
 
 use crate::{options::Options, schema::*};
 
@@ -16,23 +16,27 @@ fn sort_and_merge_variants(type_: &mut Type) {
         return;
     }
 
-    let mut old = std::mem::take(&mut e.variants);
-    old.sort_by_key(|v| Reverse(v.size)); // TODO: sort also by hash of items.
+    let old = std::mem::take(&mut e.variants);
+    let mut variants = HashMap::<usize, Vec<EnumVariant>>::with_capacity(old.len());
 
-    let mut new = Vec::with_capacity(old.len());
+    for next_variant in old {
+        let entry = variants.entry(next_variant.size).or_default();
 
-    for var in old {
-        if let Some(EnumVariant { name, size, items }) = new.last_mut() {
-            if var.size == *size && &var.items == items {
-                name.push_str(", ");
-                name.push_str(&var.name);
-                continue;
-            }
+        // Try to find a variant with the same layout.
+        if let Some(v) = entry.iter_mut().find(|v| next_variant.items == v.items) {
+            v.name.push_str(", ");
+            v.name.push_str(&next_variant.name);
+        } else {
+            entry.push(next_variant);
         }
-
-        new.push(var);
     }
 
+    let mut new = variants
+        .into_iter()
+        .flat_map(|(_, vec)| vec)
+        .collect::<Vec<_>>();
+
+    new.sort_by_key(|v| Reverse(v.size));
     e.variants = new;
 }
 
