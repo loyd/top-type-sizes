@@ -2,14 +2,17 @@
 
 Nightly rustc provides the `print-type-sizes` option for printing sizes of all types. It's especially useful for analyzing why futures are soo big, that can hurt performance a lot if such futures are moved.
 
-However, `print-type-sizes` produces unordered and cluttered output. This crate parses that output, refine it and show top types by a size in compact form.
+However, `print-type-sizes` produces unordered and cluttered output. This crate parses that output, refine it and show top types by size in compact form.
 
 Features:
-* Sorts layouts by a type size.
+* Sorts types by size.
 * Deduplicates same types.
 * Merges variants with similar layout.
 * Shows layouts in compact form.
-* Limits output.
+* Sorts fields by size (`-s`).
+* Hides small fields (`-h`).
+* Hides wrappers like `MaybeUninit` and custom ones (`-w`).
+* Limits output (`-l`).
 
 ## Usage
 Firstly, install by using `cargo install top-type-sizes` or clone the repository and run `cargo build --release`.
@@ -39,13 +42,14 @@ USAGE:
     top-type-sizes [FLAGS] [OPTIONS]
 
 FLAGS:
-        --help           Prints help information
-    -r, --reverse        Prints top `limit` types in ascending order
-        --sort-fields    Sorts fields by size and removes paddings
-    -V, --version        Prints version information
+        --help               Prints help information
+    -w, --remove-wrappers    Removes wrappers like `MaybeUninit`
+    -r, --reverse            Prints top `limit` types in ascending order
+    -s, --sort-fields        Sorts fields by size and removes paddings
+    -V, --version            Prints version information
 
 OPTIONS:
-    -h, --hide-less <hide-less>    Hides fields with a size less than this value [default: 0]
+    -h, --hide-less <hide-less>    Hides fields with size less than this value [default: 0]
     -l, --limit <limit>            Shows only this number of top types [default: 100]
 ```
 

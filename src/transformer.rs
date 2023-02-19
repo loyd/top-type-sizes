@@ -57,11 +57,37 @@ fn sort_fields_and_remove_paddings(type_: &mut Type) {
     };
 }
 
+/// Removes wrappers like `MaybeUninit` and custom ones.
+fn remove_wrappers(types: &mut Vec<Type>) {
+    let is_wrapper = |type_size, items: &[FieldOrPadding]| {
+        items.iter().all(|f| f.size() == type_size || f.size() == 0)
+    };
+
+    types.retain(|type_| {
+        if type_.end_padding.is_some() {
+            return true;
+        }
+
+        match &type_.kind {
+            TypeKind::Struct(s) => !is_wrapper(type_.size, &s.items),
+            TypeKind::Enum(e) => {
+                e.discriminant_size.is_some()
+                    || !e.variants.iter().all(|v| is_wrapper(type_.size, &v.items))
+            }
+        }
+    });
+}
+
 pub fn transform(mut types: Vec<Type>, options: &Options) -> Vec<Type> {
     // Use stable sort to preserve partial ordering.
     // Also sort by name to do proper deduplication.
     types.sort_by(|a, b| (b.size, &b.name).cmp(&(a.size, &a.name)));
     types.dedup();
+
+    if options.remove_wrappers {
+        remove_wrappers(&mut types);
+    }
+
     types.truncate(options.limit);
 
     for type_ in &mut types {
