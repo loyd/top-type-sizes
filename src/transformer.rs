@@ -1,10 +1,23 @@
 use std::{cmp::Reverse, collections::HashMap};
 
+use regex::Regex;
+
 use crate::{options::Options, schema::*};
 
 // TODO: link large types (parent-child).
 // TODO: merge types with common prefix and similar layouts.
 // TODO: support whitelist and blacklist.
+
+fn filter_types(types: &mut Vec<Type>, filters: &[Regex], exclude: &[Regex]) {
+    if filters.is_empty() && exclude.is_empty() {
+        return;
+    }
+
+    types.retain(|type_| {
+        exclude.iter().all(|pattern| !pattern.is_match(&type_.name))
+            && (filters.is_empty() || filters.iter().any(|pattern| pattern.is_match(&type_.name)))
+    });
+}
 
 /// Sorts all variants and merges ones with similar layouts.
 fn sort_and_merge_variants(type_: &mut Type) {
@@ -79,6 +92,8 @@ fn remove_wrappers(types: &mut Vec<Type>) {
 }
 
 pub fn transform(mut types: Vec<Type>, options: &Options) -> Vec<Type> {
+    filter_types(&mut types, &options.filter, &options.exclude);
+
     // Use stable sort to preserve partial ordering.
     // Also sort by name to do proper deduplication.
     types.sort_by(|a, b| (b.size, &b.name).cmp(&(a.size, &a.name)));

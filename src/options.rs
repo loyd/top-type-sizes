@@ -1,3 +1,4 @@
+use regex::Regex;
 use structopt::StructOpt;
 
 #[derive(Debug, Clone, StructOpt)]
@@ -17,4 +18,10 @@ pub struct Options {
     /// Sorts fields by size and removes paddings.
     #[structopt(short, long)]
     pub sort_fields: bool,
+    /// Shows only types that match these patterns.
+    #[structopt(short, long)]
+    pub filter: Vec<Regex>,
+    /// Excludes types that match these patterns.
+    #[structopt(short, long)]
+    pub exclude: Vec<Regex>,
 }

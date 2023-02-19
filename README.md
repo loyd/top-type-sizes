@@ -12,6 +12,7 @@ Features:
 * Sorts fields by size (`-s`).
 * Hides small fields (`-h`).
 * Hides wrappers like `MaybeUninit` and custom ones (`-w`).
+* Filters by type names (`-f` and '-e').
 * Limits output (`-l`).
 
 ## Usage
@@ -37,7 +38,7 @@ $ top-type-sizes --help
 ```
 
 ```
-top-type-sizes 0.1.1
+top-type-sizes 0.1.2
 
 USAGE:
     top-type-sizes [FLAGS] [OPTIONS]
@@ -50,6 +51,8 @@ FLAGS:
     -V, --version            Prints version information
 
 OPTIONS:
+    -e, --exclude <exclude>...     Excludes types that match these patterns
+    -f, --filter <filter>...       Shows only types that match these patterns
     -h, --hide-less <hide-less>    Hides fields with size less than this value [default: 0]
     -l, --limit <limit>            Shows only this number of top types [default: 100]
 ```
