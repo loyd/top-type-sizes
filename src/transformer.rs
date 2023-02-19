@@ -4,6 +4,7 @@ use crate::{options::Options, schema::*};
 
 // TODO: link large types (parent-child).
 // TODO: merge types with common prefix and similar layouts.
+// TODO: support whitelist and blacklist.
 
 fn merge_variants(variants: Vec<EnumVariant>) -> Vec<EnumVariant> {
     if variants.len() <= 1 {
