@@ -15,14 +15,10 @@ pub enum TypeKind {
     Enum(EnumType),
 }
 
-// Struct
-
 #[derive(Debug, PartialEq, Eq)]
 pub struct StructType {
     pub items: Vec<FieldOrPadding>,
 }
-
-// Enum
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EnumType {
