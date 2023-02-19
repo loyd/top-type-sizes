@@ -4,7 +4,7 @@ fn main() {
     let options = options::Options {
         limit: 50,
         reverse: true,
-        hide_zeros: true,
+        hide_less: 0,
     };
 
     let stdin = std::io::stdin().lock();

@@ -11,7 +11,7 @@ struct Formatter {
 
 impl Formatter {
     fn format_field_or_padding(&mut self, field: &FieldOrPadding, indent: &str) {
-        if self.options.hide_zeros && is_zero_sized(field) {
+        if get_size(field) < self.options.hide_less {
             return;
         }
 
@@ -87,10 +87,10 @@ impl Formatter {
     }
 }
 
-fn is_zero_sized(item: &FieldOrPadding) -> bool {
+fn get_size(item: &FieldOrPadding) -> Size {
     match item {
-        FieldOrPadding::Field(field) => field.size == 0,
-        FieldOrPadding::Padding(padding) => *padding == 0,
+        FieldOrPadding::Field(field) => field.size,
+        FieldOrPadding::Padding(padding) => *padding,
     }
 }
 
