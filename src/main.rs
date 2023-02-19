@@ -1,6 +1,6 @@
 use structopt::StructOpt;
 
-use type_size_top::*;
+use top_type_sizes::*;
 
 fn main() {
     let options = options::Options::from_args();
