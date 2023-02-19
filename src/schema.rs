@@ -37,6 +37,15 @@ pub enum FieldOrPadding {
     Padding(usize),
 }
 
+impl FieldOrPadding {
+    pub fn size(&self) -> usize {
+        match self {
+            Self::Field(f) => f.size,
+            Self::Padding(p) => *p,
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct Field {
     pub name: String,

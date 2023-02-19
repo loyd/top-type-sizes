@@ -36,6 +36,23 @@ fn sort_and_merge_variants(type_: &mut Type) {
     e.variants = new;
 }
 
+/// Sorts fields and removes paddings.
+fn sort_fields_and_remove_paddings(type_: &mut Type) {
+    let do_it = |fields: &mut Vec<_>| {
+        fields.retain(|f| matches!(f, FieldOrPadding::Field(_)));
+        fields.sort_by_key(|f| Reverse(f.size()))
+    };
+
+    match &mut type_.kind {
+        TypeKind::Struct(s) => do_it(&mut s.items),
+        TypeKind::Enum(e) => {
+            for variant in &mut e.variants {
+                do_it(&mut variant.items);
+            }
+        }
+    };
+}
+
 pub fn transform(mut types: Vec<Type>, options: &Options) -> Vec<Type> {
     // Use stable sort to preserve partial ordering.
     // Also sort by name to do proper deduplication.
@@ -45,6 +62,11 @@ pub fn transform(mut types: Vec<Type>, options: &Options) -> Vec<Type> {
 
     for type_ in &mut types {
         sort_and_merge_variants(type_);
+
+        if options.sort_fields {
+            type_.end_padding = None;
+            sort_fields_and_remove_paddings(type_);
+        }
     }
 
     types

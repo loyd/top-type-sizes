@@ -33,19 +33,20 @@ $ top-type-sizes --help
 ```
 
 ```
-top-type-sizes 0.1.0
+top-type-sizes 0.1.1
 
 USAGE:
     top-type-sizes [FLAGS] [OPTIONS]
 
 FLAGS:
-        --help       Prints help information
-    -r, --reverse
-    -V, --version    Prints version information
+        --help           Prints help information
+    -r, --reverse        Prints top `limit` types in ascending order
+        --sort-fields    Sorts fields by size and removes paddings
+    -V, --version        Prints version information
 
 OPTIONS:
-    -h, --hide-less <hide-less>     [default: 0]
-    -l, --limit <limit>             [default: 100]
+    -h, --hide-less <hide-less>    Hides fields with a size less than this value [default: 0]
+    -l, --limit <limit>            Shows only this number of top types [default: 100]
 ```
 
 ## Example
