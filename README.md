@@ -21,6 +21,7 @@ Secondly, compile your project:
 ```sh
 $ RUSTFLAGS=-Zprint-type-sizes cargo +nightly build -j 1 > type-sizes.txt
 ```
+* It should be a fresh build without cache. Otherwise, part of info will be lost.
 * `-Zprint-type-sizes` requires the nightly compiler.
 * `-j 1` is required to avoid incorrect shuffled output.
 
