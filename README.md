@@ -14,6 +14,7 @@ Features:
 * Hides wrappers like `MaybeUninit` and custom ones (`-w`).
 * Filters by type names (`-f` and `-e`).
 * Limits output (`-l`).
+* Expands specific types with children, heuristically (`-p`).
 
 ## Usage
 Firstly, install by using `cargo install top-type-sizes` or clone the repository and run `cargo build --release`.
@@ -38,7 +39,7 @@ $ top-type-sizes --help
 ```
 
 ```
-top-type-sizes 0.1.2
+top-type-sizes 0.1.3
 
 USAGE:
     top-type-sizes [FLAGS] [OPTIONS]
@@ -52,6 +53,7 @@ FLAGS:
 
 OPTIONS:
     -e, --exclude <exclude>...     Excludes types that match these patterns
+    -p, --expand <expand>...       Shows only types that match these patterns and their children, heuristically
     -f, --filter <filter>...       Shows only types that match these patterns
     -h, --hide-less <hide-less>    Hides fields with size less than this value [default: 0]
     -l, --limit <limit>            Shows only this number of top types [default: 100]

@@ -24,4 +24,8 @@ pub struct Options {
     /// Excludes types that match these patterns.
     #[structopt(short, long)]
     pub exclude: Vec<Regex>,
+    /// Shows only types that match these patterns and their children,
+    /// heuristically.
+    #[structopt(short = "p", long)]
+    pub expand: Vec<Regex>,
 }

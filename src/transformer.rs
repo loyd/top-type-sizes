@@ -1,4 +1,7 @@
-use std::{cmp::Reverse, collections::HashMap};
+use std::{
+    cmp::Reverse,
+    collections::{HashMap, HashSet},
+};
 
 use regex::Regex;
 
@@ -8,6 +11,7 @@ use crate::{options::Options, schema::*};
 // TODO: merge types with common prefix and similar layouts.
 // TODO: support whitelist and blacklist.
 
+/// Filters all types using whitelisted and blacklisted patterns.
 fn filter_types(types: &mut Vec<Type>, filters: &[Regex], exclude: &[Regex]) {
     if filters.is_empty() && exclude.is_empty() {
         return;
@@ -16,6 +20,41 @@ fn filter_types(types: &mut Vec<Type>, filters: &[Regex], exclude: &[Regex]) {
     types.retain(|type_| {
         exclude.iter().all(|pattern| !pattern.is_match(&type_.name))
             && (filters.is_empty() || filters.iter().any(|pattern| pattern.is_match(&type_.name)))
+    });
+}
+
+/// Retains only types that match patterns and their children. Based on
+/// hueristics. Types must be sorted in descending order.
+fn expand(types: &mut Vec<Type>, patterns: &[Regex]) {
+    if patterns.is_empty() {
+        return;
+    }
+
+    let field_size = |f: &FieldOrPadding| match f {
+        FieldOrPadding::Field(f) => Some(f.size),
+        FieldOrPadding::Padding(_) => None,
+    };
+
+    let mut sizes = HashSet::new();
+
+    types.retain(|type_| {
+        if !sizes.contains(&type_.size) && !patterns.iter().any(|p| p.is_match(&type_.name)) {
+            return false;
+        }
+
+        match &type_.kind {
+            TypeKind::Struct(s) => {
+                sizes.extend(s.items.iter().filter_map(field_size));
+            }
+            TypeKind::Enum(e) => sizes.extend(
+                e.variants
+                    .iter()
+                    .flat_map(|variant| variant.items.iter())
+                    .filter_map(field_size),
+            ),
+        }
+
+        true
     });
 }
 
@@ -102,6 +141,8 @@ pub fn transform(mut types: Vec<Type>, options: &Options) -> Vec<Type> {
     if options.remove_wrappers {
         remove_wrappers(&mut types);
     }
+
+    expand(&mut types, &options.expand);
 
     types.truncate(options.limit);
 
