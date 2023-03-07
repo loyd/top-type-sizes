@@ -17,6 +17,7 @@ expression: types
                         items: [
                             Field(
                                 Field {
+                                    kind: AdtField,
                                     name: "0",
                                     size: 32,
                                     align: None,
@@ -31,6 +32,7 @@ expression: types
                         items: [
                             Field(
                                 Field {
+                                    kind: AdtField,
                                     name: "0",
                                     size: 0,
                                     align: None,

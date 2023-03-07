@@ -53,11 +53,18 @@ fn offset(input: &str) -> IResult<&str, usize> {
 // * field `.0`: 24 bytes, alignment: 8 bytes
 // * field `.buf`: 16 bytes, offset: 0 bytes, alignment: 8 bytes
 fn field(input: &str) -> IResult<&str, Field> {
-    let (input, (_, name, _, size)) = tuple((tag("field "), name, tag(": "), bytes))(input)?;
+    let (input, kind) = alt((
+        map(tag("field "), |_| FieldKind::AdtField),
+        map(tag("upvar "), |_| FieldKind::Upvar),
+        map(tag("local "), |_| FieldKind::GeneratorLocal),
+    ))(input)?;
+
+    let (input, (name, _, size)) = tuple((name, tag(": "), bytes))(input)?;
     let (input, offset) = opt(preceded(tag(", "), offset))(input)?;
     let (input, align) = opt(preceded(tag(", "), alignment))(input)?;
 
     let field = Field {
+        kind,
         // Remove useless leading `.`.
         name: name.trim_start_matches('.').into(),
         size,

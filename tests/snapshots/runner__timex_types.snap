@@ -12,6 +12,7 @@ expression: types
                 items: [
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "modes",
                             size: 4,
                             align: None,
@@ -23,6 +24,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "offset",
                             size: 8,
                             align: Some(
@@ -33,6 +35,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "freq",
                             size: 8,
                             align: None,
@@ -41,6 +44,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "maxerror",
                             size: 8,
                             align: None,
@@ -49,6 +53,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "esterror",
                             size: 8,
                             align: None,
@@ -57,6 +62,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "status",
                             size: 4,
                             align: None,
@@ -68,6 +74,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "constant",
                             size: 8,
                             align: Some(
@@ -78,6 +85,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "precision",
                             size: 8,
                             align: None,
@@ -86,6 +94,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "tolerance",
                             size: 8,
                             align: None,
@@ -94,6 +103,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "time",
                             size: 16,
                             align: None,
@@ -102,6 +112,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "tick",
                             size: 8,
                             align: None,
@@ -110,6 +121,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "ppsfreq",
                             size: 8,
                             align: None,
@@ -118,6 +130,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "jitter",
                             size: 8,
                             align: None,
@@ -126,6 +139,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "shift",
                             size: 4,
                             align: None,
@@ -137,6 +151,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "stabil",
                             size: 8,
                             align: Some(
@@ -147,6 +162,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "jitcnt",
                             size: 8,
                             align: None,
@@ -155,6 +171,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "calcnt",
                             size: 8,
                             align: None,
@@ -163,6 +180,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "errcnt",
                             size: 8,
                             align: None,
@@ -171,6 +189,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "stbcnt",
                             size: 8,
                             align: None,
@@ -179,6 +198,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "tai",
                             size: 4,
                             align: None,
@@ -187,6 +207,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused1",
                             size: 4,
                             align: None,
@@ -195,6 +216,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused2",
                             size: 4,
                             align: None,
@@ -203,6 +225,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused3",
                             size: 4,
                             align: None,
@@ -211,6 +234,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused4",
                             size: 4,
                             align: None,
@@ -219,6 +243,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused5",
                             size: 4,
                             align: None,
@@ -227,6 +252,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused6",
                             size: 4,
                             align: None,
@@ -235,6 +261,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused7",
                             size: 4,
                             align: None,
@@ -243,6 +270,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused8",
                             size: 4,
                             align: None,
@@ -251,6 +279,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused9",
                             size: 4,
                             align: None,
@@ -259,6 +288,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused10",
                             size: 4,
                             align: None,
@@ -267,6 +297,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "__unused11",
                             size: 4,
                             align: None,

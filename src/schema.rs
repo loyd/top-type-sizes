@@ -48,9 +48,17 @@ impl FieldOrPadding {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Field {
+    pub kind: FieldKind,
     pub name: String,
     pub size: usize,
     pub align: Option<usize>,
     // TODO: what is it?
     pub offset: Option<usize>,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum FieldKind {
+    AdtField,
+    Upvar,
+    GeneratorLocal,
 }

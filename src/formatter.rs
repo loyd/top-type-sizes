@@ -19,6 +19,10 @@ impl Formatter {
             FieldOrPadding::Field(field) => {
                 let _ = write!(self.o, "{indent}{:>7} {}", field.size, field.name);
 
+                if field.kind == FieldKind::Upvar {
+                    let _ = write!(self.o, " (upvar)");
+                }
+
                 if let Some(align) = field.align {
                     let _ = write!(self.o, " align={align}");
                 }

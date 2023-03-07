@@ -12,6 +12,7 @@ expression: types
                 items: [
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "env",
                             size: 32,
                             align: None,
@@ -20,6 +21,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "cwd",
                             size: 16,
                             align: None,
@@ -28,6 +30,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "groups",
                             size: 16,
                             align: None,
@@ -36,6 +39,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "program",
                             size: 16,
                             align: None,
@@ -44,6 +48,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "args",
                             size: 24,
                             align: None,
@@ -52,6 +57,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "argv",
                             size: 24,
                             align: None,
@@ -60,6 +66,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "closures",
                             size: 24,
                             align: None,
@@ -68,6 +75,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "stdin",
                             size: 8,
                             align: None,
@@ -76,6 +84,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "stdout",
                             size: 8,
                             align: None,
@@ -84,6 +93,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "stderr",
                             size: 8,
                             align: None,
@@ -92,6 +102,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "uid",
                             size: 8,
                             align: None,
@@ -100,6 +111,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "gid",
                             size: 8,
                             align: None,
@@ -108,6 +120,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "pgroup",
                             size: 8,
                             align: None,
@@ -116,6 +129,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "program_kind",
                             size: 1,
                             align: None,
@@ -124,6 +138,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "saw_nul",
                             size: 1,
                             align: None,
@@ -132,6 +147,7 @@ expression: types
                     ),
                     Field(
                         Field {
+                            kind: AdtField,
                             name: "create_pidfd",
                             size: 1,
                             align: None,

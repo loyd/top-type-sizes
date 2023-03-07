@@ -1,0 +1,296 @@
+---
+source: tests/runner.rs
+expression: types
+---
+[
+    Type {
+        name: "[async fn body@$DIR/async.rs:8:36: 11:2]",
+        size: 16386,
+        align: 1,
+        kind: Enum(
+            EnumType {
+                discriminant_size: Some(
+                    1,
+                ),
+                variants: [
+                    EnumVariant {
+                        name: "Unresumed",
+                        size: 8192,
+                        items: [
+                            Field(
+                                Field {
+                                    kind: Upvar,
+                                    name: "arg",
+                                    size: 8192,
+                                    align: Some(
+                                        1,
+                                    ),
+                                    offset: Some(
+                                        0,
+                                    ),
+                                },
+                            ),
+                        ],
+                    },
+                    EnumVariant {
+                        name: "Suspend0",
+                        size: 16385,
+                        items: [
+                            Field(
+                                Field {
+                                    kind: Upvar,
+                                    name: "arg",
+                                    size: 8192,
+                                    align: Some(
+                                        1,
+                                    ),
+                                    offset: Some(
+                                        0,
+                                    ),
+                                },
+                            ),
+                            Field(
+                                Field {
+                                    kind: GeneratorLocal,
+                                    name: "arg",
+                                    size: 8192,
+                                    align: None,
+                                    offset: None,
+                                },
+                            ),
+                            Field(
+                                Field {
+                                    kind: GeneratorLocal,
+                                    name: "__awaitee",
+                                    size: 1,
+                                    align: None,
+                                    offset: None,
+                                },
+                            ),
+                        ],
+                    },
+                    EnumVariant {
+                        name: "Returned",
+                        size: 8192,
+                        items: [
+                            Field(
+                                Field {
+                                    kind: Upvar,
+                                    name: "arg",
+                                    size: 8192,
+                                    align: Some(
+                                        1,
+                                    ),
+                                    offset: Some(
+                                        0,
+                                    ),
+                                },
+                            ),
+                        ],
+                    },
+                    EnumVariant {
+                        name: "Panicked",
+                        size: 8192,
+                        items: [
+                            Field(
+                                Field {
+                                    kind: Upvar,
+                                    name: "arg",
+                                    size: 8192,
+                                    align: Some(
+                                        1,
+                                    ),
+                                    offset: Some(
+                                        0,
+                                    ),
+                                },
+                            ),
+                        ],
+                    },
+                ],
+            },
+        ),
+        end_padding: None,
+    },
+    Type {
+        name: "std::mem::ManuallyDrop<[u8; 8192]>",
+        size: 8192,
+        align: 1,
+        kind: Struct(
+            StructType {
+                items: [
+                    Field(
+                        Field {
+                            kind: AdtField,
+                            name: "value",
+                            size: 8192,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                ],
+            },
+        ),
+        end_padding: None,
+    },
+    Type {
+        name: "std::mem::MaybeUninit<[u8; 8192]>",
+        size: 8192,
+        align: 1,
+        kind: Enum(
+            EnumType {
+                discriminant_size: None,
+                variants: [
+                    EnumVariant {
+                        name: "MaybeUninit",
+                        size: 8192,
+                        items: [
+                            Field(
+                                Field {
+                                    kind: AdtField,
+                                    name: "uninit",
+                                    size: 0,
+                                    align: None,
+                                    offset: None,
+                                },
+                            ),
+                            Field(
+                                Field {
+                                    kind: AdtField,
+                                    name: "value",
+                                    size: 8192,
+                                    align: None,
+                                    offset: None,
+                                },
+                            ),
+                        ],
+                    },
+                ],
+            },
+        ),
+        end_padding: None,
+    },
+    Type {
+        name: "[async fn body@$DIR/async.rs:6:17: 6:19]",
+        size: 1,
+        align: 1,
+        kind: Enum(
+            EnumType {
+                discriminant_size: Some(
+                    1,
+                ),
+                variants: [
+                    EnumVariant {
+                        name: "Unresumed",
+                        size: 0,
+                        items: [],
+                    },
+                    EnumVariant {
+                        name: "Returned",
+                        size: 0,
+                        items: [],
+                    },
+                    EnumVariant {
+                        name: "Panicked",
+                        size: 0,
+                        items: [],
+                    },
+                ],
+            },
+        ),
+        end_padding: None,
+    },
+    Type {
+        name: "std::mem::ManuallyDrop<[async fn body@$DIR/async.rs:6:17: 6:19]>",
+        size: 1,
+        align: 1,
+        kind: Struct(
+            StructType {
+                items: [
+                    Field(
+                        Field {
+                            kind: AdtField,
+                            name: "value",
+                            size: 1,
+                            align: None,
+                            offset: None,
+                        },
+                    ),
+                ],
+            },
+        ),
+        end_padding: None,
+    },
+    Type {
+        name: "std::mem::MaybeUninit<[async fn body@$DIR/async.rs:6:17: 6:19]>",
+        size: 1,
+        align: 1,
+        kind: Enum(
+            EnumType {
+                discriminant_size: None,
+                variants: [
+                    EnumVariant {
+                        name: "MaybeUninit",
+                        size: 1,
+                        items: [
+                            Field(
+                                Field {
+                                    kind: AdtField,
+                                    name: "uninit",
+                                    size: 0,
+                                    align: None,
+                                    offset: None,
+                                },
+                            ),
+                            Field(
+                                Field {
+                                    kind: AdtField,
+                                    name: "value",
+                                    size: 1,
+                                    align: None,
+                                    offset: None,
+                                },
+                            ),
+                        ],
+                    },
+                ],
+            },
+        ),
+        end_padding: None,
+    },
+    Type {
+        name: "std::task::Poll<()>",
+        size: 1,
+        align: 1,
+        kind: Enum(
+            EnumType {
+                discriminant_size: Some(
+                    1,
+                ),
+                variants: [
+                    EnumVariant {
+                        name: "Ready",
+                        size: 0,
+                        items: [
+                            Field(
+                                Field {
+                                    kind: AdtField,
+                                    name: "0",
+                                    size: 0,
+                                    align: None,
+                                    offset: None,
+                                },
+                            ),
+                        ],
+                    },
+                    EnumVariant {
+                        name: "Pending",
+                        size: 0,
+                        items: [],
+                    },
+                ],
+            },
+        ),
+        end_padding: None,
+    },
+]

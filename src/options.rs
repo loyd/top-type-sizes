@@ -29,3 +29,9 @@ pub struct Options {
     #[structopt(short = "p", long)]
     pub expand: Vec<Regex>,
 }
+
+impl Default for Options {
+    fn default() -> Self {
+        Self::from_iter(vec!["top-type-sizes"])
+    }
+}
