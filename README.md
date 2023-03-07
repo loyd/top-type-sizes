@@ -39,7 +39,7 @@ $ top-type-sizes --help
 ```
 
 ```
-top-type-sizes 0.1.3
+top-type-sizes 0.1.4
 
 USAGE:
     top-type-sizes [FLAGS] [OPTIONS]
