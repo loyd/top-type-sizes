@@ -58,43 +58,88 @@ OPTIONS:
     -l, --limit <limit>            Shows only this number of top types [default: 100]
 ```
 
-## Example
-```text
-3456 [async block@/home/.cargo/registry/src/github.com-1ecc6299db9ec823/trust-dns-resolver-0.22.0/src/name_server/name_server_pool.rs:256:23: 296:10] align=8
-      1 <discriminant>
-   3455 variant Suspend1
-        128 opts align=8 offset=0
-         16 datagram_conns
-         16 stream_conns
-        216 request
-        216 tcp_message
-          1 generator_field3
-          1 generator_field4
-          1 generator_field5
-          1 generator_field6
-          1 generator_field7
-          1 generator_field8
-          1 generator_field9
-          1 <padding>
-        200 udp_res align=8
-       2656 __awaitee
-   3255 variant Suspend0
-        128 opts align=8 offset=0
-         16 datagram_conns
-         16 stream_conns
-        216 request
-        216 tcp_message
-          3 <padding>
-          1 generator_field6 align=1
-          1 generator_field7
-          1 generator_field8
-          1 generator_field9
-          1 <padding>
-       2656 __awaitee align=8
-    592 variant Unresumed, Returned, Panicked
-        128 opts align=8 offset=0
-         16 datagram_conns
-         16 stream_conns
-        216 request
-        216 tcp_message
+## Examples
+For instance, let's analyze the [`tokio/chat`](https://github.com/tokio-rs/tokio/blob/master/examples/chat.rs) example:
 ```
+RUSTFLAGS=-Zprint-type-sizes cargo +nightly build --example chat -j 1 > chat.txt
+```
+
+Once the compiler's output is collected, you can perform multiple queries until results become representative.
+
+Initially, find interesting entry functions:
+```sh
+top-type-sizes -f chat.rs < chat.txt | less
+```
+
+* `-f <pattern>` hides all types that doesn't match the provided pattern. Note, that `async fn` has a path in a type name.
+
+```text
+...
+1032 [async fn body@examples/chat.rs:174:33: 243:2] align=8
+...
+```
+
+Ok, it's the [`process`](https://github.com/tokio-rs/tokio/blob/4ea632005d689f850e87a116b9e535a0015a7a0f/examples/chat.rs#L170) function, let's check it and children types.
+
+```sh
+top-type-sizes -w -s -h 33 -p body@examples/chat.rs:174:33 < chat.txt | less
+```
+
+* `-w` hides wrappers, e.g.
+    ```
+    1032 std::mem::MaybeUninit<[async fn body@examples/chat.rs:174:33: 243:2]> align=8
+       1032 variant MaybeUninit
+           1032 value
+    ```
+* `-s` sorts fields by size and hides paddings.
+* `-h <size>` hides all fields with size less than the provided size.
+* `-p <pattern>` hides all types that aren't contained in `<patten>` types. Note that the compiler doesn't provide types of fields, so this parameter filters types recursively by field sizes and can leave a lot of irrelevant types for small sizes (because they are more frequent). But it's very useful anyway.
+
+Output:
+```text
+1032 [async fn body@examples/chat.rs:174:33: 243:2] align=8
+   1031 variant Suspend2
+        472 __awaitee align=8
+        144 lines
+         40 stream
+    671 variant Suspend3, Suspend7, Suspend9
+        152 peer
+        144 lines
+        112 __awaitee align=8
+         40 stream
+    647 variant Suspend4, Suspend8, Suspend10
+        152 peer
+        144 lines
+         64 __awaitee
+         40 stream
+    623 variant Suspend5
+        152 peer
+        144 lines
+         40 stream
+         40 futures
+    599 variant Suspend6
+        152 peer
+        144 lines
+         40 stream
+    583 variant Suspend0
+        144 lines
+         40 stream
+    567 variant Suspend1
+        144 lines
+         40 stream
+    552 variant Unresumed, Returned, Panicked
+         40 stream
+
+472 [async fn body@examples/chat.rs:155:27: 166:6] align=8
+    465 variant Suspend0
+        144 lines
+        144 lines
+        112 __awaitee
+    464 variant Unresumed, Returned, Panicked
+        144 lines align=8
+...
+```
+
+Note: `__awaitee` means awaiting on an inner future.
+
+Then, you can use `-f` and `-e` to refine output even more.
