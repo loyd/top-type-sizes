@@ -3,7 +3,15 @@ name = "top-type-sizes"
 description = "Makes -Zprint-type-size more useful"
 version = "0.1.4"
 authors = ["Paul Loyd <pavelko95@gmail.com>"]
-license = "MIT"
+keywords = ["profiling", "print-type-size"]
+categories = [
+    "command-line-utilities",
+    "development-tools",
+    "development-tools::profiling",
+]
+repository = "https://github.com/loyd/top-type-sizes"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
 edition = "2021"
 
 [dependencies]
