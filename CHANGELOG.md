@@ -13,9 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Use `cargo-release`.
+- Merge variants after applying `-h` and `-s` transformations.
 
 ### Fixed
 - Specify missing metadata in the package's info.
+- Now `-h` also affects discriminants.
 
 ## [0.1.4] - 2023-03-07
 ### Added

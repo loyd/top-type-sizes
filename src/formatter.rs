@@ -6,15 +6,10 @@ use crate::{options::Options, schema::*};
 
 struct Formatter {
     o: String,
-    options: Options,
 }
 
 impl Formatter {
     fn format_field_or_padding(&mut self, field: &FieldOrPadding, indent: &str) {
-        if field.size() < self.options.hide_less {
-            return;
-        }
-
         match field {
             FieldOrPadding::Field(field) => {
                 let _ = write!(self.o, "{indent}{:>7} {}", field.size, field.name);
@@ -107,7 +102,6 @@ pub fn format(mut types: Vec<Type>, options: &Options) -> String {
 
     let mut formatter = Formatter {
         o: String::with_capacity(100 * 1024),
-        options: options.clone(),
     };
 
     formatter.format_types(&types);

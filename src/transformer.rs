@@ -94,6 +94,8 @@ fn sort_and_merge_variants(type_: &mut Type) {
 
 /// Sorts fields and removes paddings.
 fn sort_fields_and_remove_paddings(type_: &mut Type) {
+    type_.end_padding = None;
+
     let do_it = |fields: &mut Vec<_>| {
         fields.retain(|f| matches!(f, FieldOrPadding::Field(_)));
         fields.sort_by_key(|f| Reverse(f.size()))
@@ -102,6 +104,30 @@ fn sort_fields_and_remove_paddings(type_: &mut Type) {
     match &mut type_.kind {
         TypeKind::Struct(s) => do_it(&mut s.items),
         TypeKind::Enum(e) => {
+            for variant in &mut e.variants {
+                do_it(&mut variant.items);
+            }
+        }
+    };
+}
+
+/// Removes fields and paddings smaller than `threshold`.
+fn remove_small_fields(type_: &mut Type, threshold: usize) {
+    if type_.end_padding.map_or(false, |p| p < threshold) {
+        type_.end_padding = None;
+    }
+
+    let do_it = |fields: &mut Vec<FieldOrPadding>| {
+        fields.retain(|f| f.size() >= threshold);
+    };
+
+    match &mut type_.kind {
+        TypeKind::Struct(s) => do_it(&mut s.items),
+        TypeKind::Enum(e) => {
+            if e.discriminant_size.map_or(false, |p| p < threshold) {
+                e.discriminant_size = None;
+            }
+
             for variant in &mut e.variants {
                 do_it(&mut variant.items);
             }
@@ -147,12 +173,15 @@ pub fn transform(mut types: Vec<Type>, options: &Options) -> Vec<Type> {
     types.truncate(options.limit);
 
     for type_ in &mut types {
-        sort_and_merge_variants(type_);
+        if options.hide_less > 0 {
+            remove_small_fields(type_, options.hide_less);
+        }
 
         if options.sort_fields {
-            type_.end_padding = None;
             sort_fields_and_remove_paddings(type_);
         }
+
+        sort_and_merge_variants(type_);
     }
 
     types
