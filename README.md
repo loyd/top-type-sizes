@@ -60,7 +60,7 @@ OPTIONS:
 
 ## Examples
 For instance, let's analyze the [`tokio/chat`](https://github.com/tokio-rs/tokio/blob/master/examples/chat.rs) example:
-```
+```sh
 RUSTFLAGS=-Zprint-type-sizes cargo +nightly build --example chat -j 1 > chat.txt
 ```
 
@@ -86,7 +86,7 @@ top-type-sizes -w -s -h 33 -p body@examples/chat.rs:174:33 < chat.txt | less
 ```
 
 * `-w` hides wrappers, e.g.
-    ```
+    ```text
     1032 std::mem::MaybeUninit<[async fn body@examples/chat.rs:174:33: 243:2]> align=8
        1032 variant MaybeUninit
            1032 value
