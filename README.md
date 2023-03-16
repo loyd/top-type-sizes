@@ -33,12 +33,11 @@ $ top-type-sizes < type-sizes.txt | less
 ```
 
 ### Help
-
 ```sh
 $ top-type-sizes --help
 ```
 
-```
+```text
 top-type-sizes 0.1.4
 
 USAGE:
@@ -60,7 +59,7 @@ OPTIONS:
 ```
 
 ## Example
-```
+```text
 3456 [async block@/home/.cargo/registry/src/github.com-1ecc6299db9ec823/trust-dns-resolver-0.22.0/src/name_server/name_server_pool.rs:256:23: 296:10] align=8
       1 <discriminant>
    3455 variant Suspend1
