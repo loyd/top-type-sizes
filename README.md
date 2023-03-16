@@ -38,7 +38,7 @@ $ top-type-sizes --help
 ```
 
 ```text
-top-type-sizes 0.1.4
+top-type-sizes 0.1.5
 
 USAGE:
     top-type-sizes [FLAGS] [OPTIONS]

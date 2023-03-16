@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- next-header -->
 
 ## [Unreleased] - ReleaseDate
+
+## [0.1.5] - 2023-03-16
 ### Added
 - More useful examples.
 - CI checks.
@@ -27,5 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release with CHANGELOG.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/loyd/top-type-sizes/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/loyd/top-type-sizes/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/loyd/top-type-sizes/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/loyd/top-type-sizes/releases/tag/v0.1.4
