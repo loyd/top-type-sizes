@@ -17,6 +17,7 @@ expression: types
                             size: 32,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -26,6 +27,7 @@ expression: types
                             size: 16,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -35,6 +37,7 @@ expression: types
                             size: 16,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -44,6 +47,7 @@ expression: types
                             size: 16,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -53,6 +57,7 @@ expression: types
                             size: 24,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -62,6 +67,7 @@ expression: types
                             size: 24,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -71,6 +77,7 @@ expression: types
                             size: 24,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -80,6 +87,7 @@ expression: types
                             size: 8,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -89,6 +97,7 @@ expression: types
                             size: 8,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -98,6 +107,7 @@ expression: types
                             size: 8,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -107,6 +117,7 @@ expression: types
                             size: 8,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -116,6 +127,7 @@ expression: types
                             size: 8,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -125,6 +137,7 @@ expression: types
                             size: 8,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -134,6 +147,7 @@ expression: types
                             size: 1,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -143,6 +157,7 @@ expression: types
                             size: 1,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                     Field(
@@ -152,6 +167,7 @@ expression: types
                             size: 1,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                 ],

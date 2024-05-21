@@ -27,5 +27,6 @@ test_sample!(tokio_udp);
 test_sample!(several_types);
 test_sample!(timex);
 test_sample!(async_fn);
+test_sample!(compiler_messages);
 
 // TODO: add samples from rustc tests.

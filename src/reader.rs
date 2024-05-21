@@ -7,6 +7,7 @@ pub fn read(mut rd: impl BufRead) -> eyre::Result<String> {
 
     while rd.read_line(&mut line)? > 0 {
         let Some(refined_line) = line.strip_prefix("print-type-size ") else {
+            line.clear();
             continue
         };
 

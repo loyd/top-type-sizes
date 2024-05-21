@@ -43,6 +43,11 @@ fn alignment(input: &str) -> IResult<&str, usize> {
     preceded(tag("alignment: "), bytes)(input)
 }
 
+// Example: "type: {async fn body of fn}"
+fn local_type(input: &str) -> IResult<&str, &str> {
+    preceded(tag("type: "), is_not("\n"))(input)
+}
+
 // Example: "offset: 0 bytes"
 fn offset(input: &str) -> IResult<&str, usize> {
     preceded(tag("offset: "), bytes)(input)
@@ -62,6 +67,7 @@ fn field(input: &str) -> IResult<&str, Field> {
     let (input, (name, _, size)) = tuple((name, tag(": "), bytes))(input)?;
     let (input, offset) = opt(preceded(tag(", "), offset))(input)?;
     let (input, align) = opt(preceded(tag(", "), alignment))(input)?;
+    let (input, local_type) = opt(preceded(tag(", "), local_type))(input)?;
 
     let field = Field {
         kind,
@@ -70,6 +76,7 @@ fn field(input: &str) -> IResult<&str, Field> {
         size,
         align,
         offset,
+        local_type: local_type.map(|s| s.to_string()),
     };
 
     Ok((input, field))

@@ -29,6 +29,7 @@ expression: types
                                         8,
                                     ),
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                             Padding(
@@ -43,6 +44,7 @@ expression: types
                                         8,
                                     ),
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                         ],
@@ -63,6 +65,7 @@ expression: types
                                         8,
                                     ),
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                             Padding(
@@ -77,6 +80,7 @@ expression: types
                                         8,
                                     ),
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                         ],
@@ -97,6 +101,7 @@ expression: types
                                         8,
                                     ),
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                             Padding(
@@ -111,6 +116,7 @@ expression: types
                                         8,
                                     ),
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                         ],
@@ -130,6 +136,7 @@ expression: types
                                     offset: Some(
                                         0,
                                     ),
+                                    local_type: None,
                                 },
                             ),
                             Field(
@@ -139,6 +146,7 @@ expression: types
                                     size: 144,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                             Field(
@@ -148,6 +156,7 @@ expression: types
                                     size: 16,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                             Field(
@@ -157,6 +166,7 @@ expression: types
                                     size: 8,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                             Field(
@@ -166,6 +176,7 @@ expression: types
                                     size: 8,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                         ],

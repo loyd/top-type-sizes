@@ -28,6 +28,7 @@ expression: types
                                     offset: Some(
                                         0,
                                     ),
+                                    local_type: None,
                                 },
                             ),
                         ],
@@ -47,6 +48,7 @@ expression: types
                                     offset: Some(
                                         0,
                                     ),
+                                    local_type: None,
                                 },
                             ),
                             Field(
@@ -56,6 +58,7 @@ expression: types
                                     size: 8192,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                             Field(
@@ -65,6 +68,7 @@ expression: types
                                     size: 1,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                         ],
@@ -84,6 +88,7 @@ expression: types
                                     offset: Some(
                                         0,
                                     ),
+                                    local_type: None,
                                 },
                             ),
                         ],
@@ -103,6 +108,7 @@ expression: types
                                     offset: Some(
                                         0,
                                     ),
+                                    local_type: None,
                                 },
                             ),
                         ],
@@ -126,6 +132,7 @@ expression: types
                             size: 8192,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                 ],
@@ -152,6 +159,7 @@ expression: types
                                     size: 0,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                             Field(
@@ -161,6 +169,7 @@ expression: types
                                     size: 8192,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                         ],
@@ -214,6 +223,7 @@ expression: types
                             size: 1,
                             align: None,
                             offset: None,
+                            local_type: None,
                         },
                     ),
                 ],
@@ -240,6 +250,7 @@ expression: types
                                     size: 0,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                             Field(
@@ -249,6 +260,7 @@ expression: types
                                     size: 1,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                         ],
@@ -279,6 +291,7 @@ expression: types
                                     size: 0,
                                     align: None,
                                     offset: None,
+                                    local_type: None,
                                 },
                             ),
                         ],
