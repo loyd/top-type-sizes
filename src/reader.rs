@@ -8,7 +8,7 @@ pub fn read(mut rd: impl BufRead) -> eyre::Result<String> {
     while rd.read_line(&mut line)? > 0 {
         let Some(refined_line) = line.strip_prefix("print-type-size ") else {
             line.clear();
-            continue
+            continue;
         };
 
         result.push_str(refined_line);
@@ -16,7 +16,7 @@ pub fn read(mut rd: impl BufRead) -> eyre::Result<String> {
     }
 
     // Handle a trailing newline.
-    if result.chars().rev().next().map_or(false, |c| c == '\n') {
+    if result.chars().next_back().map_or(false, |c| c == '\n') {
         result.pop();
     }
 

@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- next-header -->
 
 ## [Unreleased] - ReleaseDate
+### Added
+- Show `__awaitee` type name ([#2]).
+
+### Fixed
+- Support nightly after 2024-03-22 ([#4]).
+
+[#2]: https://github.com/loyd/top-type-sizes/issues/2
+[#4]: https://github.com/loyd/top-type-sizes/pull/4
 
 ## [0.1.5] - 2023-03-16
 ### Added
