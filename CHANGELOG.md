@@ -9,10 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased] - ReleaseDate
 ### Added
 - Show `__awaitee` type name ([#2]).
+- Support expanding (`-p`) by field's type name.
 
 ### Changed
 - The `-h` parameter now filters also types, not only fields.
 - Remove a default value for `-l`, now output is unlimited by default.
+- Now expanding (`-p`) doesn't use a field's size until the `--expand-by-size` flag is provided.
 
 ### Fixed
 - Support nightly after 2024-03-22 ([#4]).

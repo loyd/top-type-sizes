@@ -7,10 +7,6 @@ use regex::Regex;
 
 use crate::{options::Options, schema::*};
 
-// TODO: link large types (parent-child).
-// TODO: merge types with common prefix and similar layouts.
-// TODO: support whitelist and blacklist.
-
 /// Filters all types by size, regex filters and wrappers.
 fn filter_types(types: &mut Vec<Type>, options: &Options) {
     // Skip filtering if no options are provided.
@@ -68,35 +64,44 @@ fn is_wrapper(type_: &Type) -> bool {
     }
 }
 
-/// Retains only types that match patterns and their children. Based on
-/// hueristics. Types must be sorted in descending order.
-fn expand(types: &mut Vec<Type>, patterns: &[Regex]) {
+/// Retains only types that match patterns and their children using fields'
+/// types when provided. If `use_size` is true, it also uses sizes in fields.
+///
+/// Types must be sorted in descending order by size.
+fn expand(types: &mut Vec<Type>, patterns: &[Regex], use_size: bool) {
     if patterns.is_empty() {
         return;
     }
 
-    let field_size = |f: &FieldOrPadding| match f {
-        FieldOrPadding::Field(f) => Some(f.size),
-        FieldOrPadding::Padding(_) => None,
-    };
-
+    let mut names = HashSet::new();
     let mut sizes = HashSet::new();
 
     types.retain(|type_| {
-        if !sizes.contains(&type_.size) && !patterns.iter().any(|p| p.is_match(&type_.name)) {
+        if !names.contains(&type_.name)
+            && !sizes.contains(&type_.size)
+            && !patterns.iter().any(|p| p.is_match(&type_.name))
+        {
             return false;
         }
 
-        match &type_.kind {
-            TypeKind::Struct(s) => {
-                sizes.extend(s.items.iter().filter_map(field_size));
+        let append = |f: &FieldOrPadding| match f {
+            FieldOrPadding::Field(f) => {
+                if let Some(name) = &f.local_type {
+                    names.insert(name.clone());
+                } else if use_size {
+                    sizes.insert(f.size);
+                }
             }
-            TypeKind::Enum(e) => sizes.extend(
-                e.variants
-                    .iter()
-                    .flat_map(|variant| variant.items.iter())
-                    .filter_map(field_size),
-            ),
+            FieldOrPadding::Padding(_) => {}
+        };
+
+        match &type_.kind {
+            TypeKind::Struct(s) => s.items.iter().for_each(append),
+            TypeKind::Enum(e) => e
+                .variants
+                .iter()
+                .flat_map(|variant| variant.items.iter())
+                .for_each(append),
         }
 
         true
@@ -188,7 +193,7 @@ pub fn transform(mut types: Vec<Type>, options: &Options) -> Vec<Type> {
     types.sort_by(|a, b| (b.size, &b.name).cmp(&(a.size, &a.name)));
     types.dedup();
 
-    expand(&mut types, &options.expand);
+    expand(&mut types, &options.expand, options.expand_by_size);
 
     if let Some(limit) = options.limit {
         types.truncate(limit);
