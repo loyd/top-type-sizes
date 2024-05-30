@@ -54,6 +54,7 @@ pub struct Field {
     pub align: Option<usize>,
     // TODO: what is it?
     pub offset: Option<usize>,
+    pub local_type: Option<String>
 }
 
 #[derive(Debug, PartialEq, Eq)]

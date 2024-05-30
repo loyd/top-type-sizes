@@ -1,0 +1,14 @@
+   Compiling project v0.0.0 (/home/project)
+print-type-size type: `{async fn body of run()}`: 7880 bytes, alignment: 8 bytes
+print-type-size     discriminant: 1 bytes
+print-type-size     variant `Unresumed`: 592 bytes
+print-type-size         upvar `.self`: 568 bytes, offset: 0 bytes, alignment: 8 bytes
+print-type-size         upvar `.drain`: 24 bytes
+print-type-size     variant `Suspend0`: 7879 bytes
+print-type-size         upvar `.self`: 568 bytes, offset: 0 bytes, alignment: 8 bytes
+print-type-size         upvar `.drain`: 24 bytes
+print-type-size         local `.self`: 568 bytes
+print-type-size         padding: 1 bytes
+print-type-size         local `..coroutine_field3`: 1 bytes, alignment: 1 bytes, type: bool
+print-type-size         padding: 6 bytes
+print-type-size         local `.__awaitee`: 6712 bytes, alignment: 8 bytes, type: {async fn body of run()}

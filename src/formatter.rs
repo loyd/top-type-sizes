@@ -24,6 +24,9 @@ impl Formatter {
                 if let Some(offset) = field.offset {
                     let _ = write!(self.o, " offset={offset}");
                 }
+                if let Some(t) = &field.local_type {
+                    let _ = write!(self.o, " type={t}");
+                }
 
                 let _ = writeln!(self.o);
             }
