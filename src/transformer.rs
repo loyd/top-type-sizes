@@ -15,7 +15,7 @@ use crate::{options::Options, schema::*};
 fn filter_types(types: &mut Vec<Type>, options: &Options) {
     // Skip filtering if no options are provided.
     if !options.remove_wrappers
-        && options.hide_less == 0
+        && options.hide_less.is_none()
         && options.filter.is_empty()
         && options.exclude.is_empty()
     {
@@ -24,7 +24,7 @@ fn filter_types(types: &mut Vec<Type>, options: &Options) {
 
     types.retain(|type_| {
         // Remove by size.
-        if type_.size < options.hide_less {
+        if type_.size < options.hide_less.unwrap_or(0) {
             return false;
         }
 
@@ -190,11 +190,13 @@ pub fn transform(mut types: Vec<Type>, options: &Options) -> Vec<Type> {
 
     expand(&mut types, &options.expand);
 
-    types.truncate(options.limit);
+    if let Some(limit) = options.limit {
+        types.truncate(limit);
+    }
 
     for type_ in &mut types {
-        if options.hide_less > 0 {
-            remove_small_fields(type_, options.hide_less);
+        if let Some(threshold) = options.hide_less {
+            remove_small_fields(type_, threshold);
         }
 
         if options.sort_fields {

@@ -54,8 +54,8 @@ OPTIONS:
     -e, --exclude <exclude>...     Excludes types that match these patterns
     -p, --expand <expand>...       Shows only types that match these patterns and their children, heuristically
     -f, --filter <filter>...       Shows only types that match these patterns
-    -h, --hide-less <hide-less>    Hides types and fields with size less than this value [default: 0]
-    -l, --limit <limit>            Shows only this number of top types [default: 100]
+    -h, --hide-less <hide-less>    Hides types and fields with size less than this value
+    -l, --limit <limit>            Shows only this number of top types
 ```
 
 ## Examples
