@@ -12,7 +12,7 @@ pub struct Options {
     /// Removes wrappers like `MaybeUninit`.
     #[structopt(short = "w", long)]
     pub remove_wrappers: bool,
-    /// Hides fields with size less than this value.
+    /// Hides types and fields with size less than this value.
     #[structopt(short, long, default_value = "0")]
     pub hide_less: usize,
     /// Sorts fields by size and removes paddings.

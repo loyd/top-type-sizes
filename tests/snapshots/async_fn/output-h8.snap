@@ -15,14 +15,3 @@ description: top-type-sizes -h8
 
 8192 std::mem::ManuallyDrop<[u8; 8192]> align=1
    8192 value
-
-1 std::task::Poll<()> align=1
-      0 variant Ready, Pending
-
-1 std::mem::MaybeUninit<[async fn body@$DIR/async.rs:6:17: 6:19]> align=1
-      1 variant MaybeUninit
-
-1 std::mem::ManuallyDrop<[async fn body@$DIR/async.rs:6:17: 6:19]> align=1
-
-1 [async fn body@$DIR/async.rs:6:17: 6:19] align=1
-      0 variant Unresumed, Returned, Panicked

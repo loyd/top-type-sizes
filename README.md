@@ -10,7 +10,7 @@ Features:
 * Merges variants with similar layout.
 * Shows layouts in compact form.
 * Sorts fields by size (`-s`).
-* Hides small fields (`-h`).
+* Hides small types and fields (`-h`).
 * Hides wrappers like `MaybeUninit` and custom ones (`-w`).
 * Filters by type names (`-f` and `-e`).
 * Limits output (`-l`).
@@ -54,7 +54,7 @@ OPTIONS:
     -e, --exclude <exclude>...     Excludes types that match these patterns
     -p, --expand <expand>...       Shows only types that match these patterns and their children, heuristically
     -f, --filter <filter>...       Shows only types that match these patterns
-    -h, --hide-less <hide-less>    Hides fields with size less than this value [default: 0]
+    -h, --hide-less <hide-less>    Hides types and fields with size less than this value [default: 0]
     -l, --limit <limit>            Shows only this number of top types [default: 100]
 ```
 
@@ -92,7 +92,7 @@ top-type-sizes -w -s -h 33 -p body@examples/chat.rs:174:33 < chat.txt | less
            1032 value
     ```
 * `-s` sorts fields by size and hides paddings.
-* `-h <size>` hides all fields with size less than the provided size.
+* `-h <size>` hides all types and fields with size less than the provided size.
 * `-p <pattern>` hides all types that aren't contained in `<patten>` types. Note that the compiler doesn't provide types of fields, so this parameter filters types recursively by field sizes and can leave a lot of irrelevant types for small sizes (because they are more frequent). But it's very useful anyway.
 
 Output:

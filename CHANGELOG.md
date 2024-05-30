@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Show `__awaitee` type name ([#2]).
 
+### Changed
+- The `-h` parameter now filters also types, not only fields.
+
 ### Fixed
 - Support nightly after 2024-03-22 ([#4]).
 

@@ -11,16 +11,61 @@ use crate::{options::Options, schema::*};
 // TODO: merge types with common prefix and similar layouts.
 // TODO: support whitelist and blacklist.
 
-/// Filters all types using whitelisted and blacklisted patterns.
-fn filter_types(types: &mut Vec<Type>, filters: &[Regex], exclude: &[Regex]) {
-    if filters.is_empty() && exclude.is_empty() {
+/// Filters all types by size, regex filters and wrappers.
+fn filter_types(types: &mut Vec<Type>, options: &Options) {
+    // Skip filtering if no options are provided.
+    if !options.remove_wrappers
+        && options.hide_less == 0
+        && options.filter.is_empty()
+        && options.exclude.is_empty()
+    {
         return;
     }
 
     types.retain(|type_| {
-        exclude.iter().all(|pattern| !pattern.is_match(&type_.name))
-            && (filters.is_empty() || filters.iter().any(|pattern| pattern.is_match(&type_.name)))
+        // Remove by size.
+        if type_.size < options.hide_less {
+            return false;
+        }
+
+        // Remove wrappers (`MaybeUninit` etc).
+        if options.remove_wrappers && is_wrapper(type_) {
+            return false;
+        }
+
+        // Remove by explicit patterns.
+        if options
+            .exclude
+            .iter()
+            .any(|pattern| pattern.is_match(&type_.name))
+        {
+            return false;
+        }
+
+        options.filter.is_empty()
+            || options
+                .filter
+                .iter()
+                .any(|pattern| pattern.is_match(&type_.name))
     });
+}
+
+/// Detects wrappers like `MaybeUninit` and custom ones.
+fn is_wrapper(type_: &Type) -> bool {
+    if type_.end_padding.is_some() {
+        return false;
+    }
+
+    let pred = |type_size, items: &[FieldOrPadding]| {
+        items.iter().all(|f| f.size() == type_size || f.size() == 0)
+    };
+
+    match &type_.kind {
+        TypeKind::Struct(s) => pred(type_.size, &s.items),
+        TypeKind::Enum(e) => {
+            e.discriminant_size.is_none() && e.variants.iter().all(|v| pred(type_.size, &v.items))
+        }
+    }
 }
 
 /// Retains only types that match patterns and their children. Based on
@@ -135,38 +180,13 @@ fn remove_small_fields(type_: &mut Type, threshold: usize) {
     };
 }
 
-/// Removes wrappers like `MaybeUninit` and custom ones.
-fn remove_wrappers(types: &mut Vec<Type>) {
-    let is_wrapper = |type_size, items: &[FieldOrPadding]| {
-        items.iter().all(|f| f.size() == type_size || f.size() == 0)
-    };
-
-    types.retain(|type_| {
-        if type_.end_padding.is_some() {
-            return true;
-        }
-
-        match &type_.kind {
-            TypeKind::Struct(s) => !is_wrapper(type_.size, &s.items),
-            TypeKind::Enum(e) => {
-                e.discriminant_size.is_some()
-                    || !e.variants.iter().all(|v| is_wrapper(type_.size, &v.items))
-            }
-        }
-    });
-}
-
 pub fn transform(mut types: Vec<Type>, options: &Options) -> Vec<Type> {
-    filter_types(&mut types, &options.filter, &options.exclude);
+    filter_types(&mut types, options);
 
     // Use stable sort to preserve partial ordering.
     // Also sort by name to do proper deduplication.
     types.sort_by(|a, b| (b.size, &b.name).cmp(&(a.size, &a.name)));
     types.dedup();
-
-    if options.remove_wrappers {
-        remove_wrappers(&mut types);
-    }
 
     expand(&mut types, &options.expand);
 
