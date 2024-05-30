@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- next-header -->
 
 ## [Unreleased] - ReleaseDate
+
+## [0.2.0] - 2024-05-30
 ### Added
 - Show `__awaitee` type name ([#2]).
 - Support expanding (`-p`) by field's type name.
@@ -43,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release with CHANGELOG.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/loyd/top-type-sizes/compare/v0.1.5...HEAD
+[Unreleased]: https://github.com/loyd/top-type-sizes/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/loyd/top-type-sizes/compare/v0.1.5...v0.2.0
 [0.1.5]: https://github.com/loyd/top-type-sizes/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/loyd/top-type-sizes/releases/tag/v0.1.4
