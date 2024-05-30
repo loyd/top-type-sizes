@@ -1,0 +1,24 @@
+---
+source: tests/runner.rs
+description: internal representation
+---
+- name: "std::ops::ControlFlow<std::option::Option<std::convert::Infallible>, alloc::collections::btree::navigate::LazyLeafHandle<alloc::collections::btree::node::marker::Dying, std::ffi::OsString, std::option::Option<std::ffi::OsString>>>"
+  size: 32
+  align: 8
+  kind:
+    Enum:
+      variants:
+        - name: Continue
+          size: 32
+          items:
+            - Field:
+                kind: AdtField
+                name: "0"
+                size: 32
+        - name: Break
+          size: 0
+          items:
+            - Field:
+                kind: AdtField
+                name: "0"
+                size: 0

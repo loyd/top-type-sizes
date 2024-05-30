@@ -1,0 +1,26 @@
+---
+source: tests/runner.rs
+description: top-type-sizes -ws -h16
+---
+64 std::fmt::Formatter<'_> align=8
+     16 buf
+     16 width
+     16 precision
+
+56 std::fmt::rt::v1::Argument align=8
+     48 format
+
+48 std::fmt::rt::v1::FormatSpec align=8
+     16 precision
+     16 width
+
+48 std::fmt::Arguments<'_> align=8
+     16 fmt
+     16 pieces
+     16 args
+
+32 unwind::libunwind::_Unwind_Exception align=8
+     16 private
+
+32 std::result::Result<std::string::String, std::env::VarError> align=8
+     24 variant Ok, Err

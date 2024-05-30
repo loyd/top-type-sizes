@@ -1,0 +1,133 @@
+---
+source: tests/runner.rs
+description: internal representation
+---
+- name: "std::fmt::Formatter<'_>"
+  size: 64
+  align: 8
+  kind:
+    Struct:
+      items:
+        - Field:
+            kind: AdtField
+            name: buf
+            size: 16
+        - Field:
+            kind: AdtField
+            name: width
+            size: 16
+        - Field:
+            kind: AdtField
+            name: precision
+            size: 16
+        - Field:
+            kind: AdtField
+            name: flags
+            size: 4
+        - Field:
+            kind: AdtField
+            name: fill
+            size: 4
+        - Field:
+            kind: AdtField
+            name: align
+            size: 1
+  end_padding: 7
+- name: "std::fmt::rt::v1::Argument"
+  size: 56
+  align: 8
+  kind:
+    Struct:
+      items:
+        - Field:
+            kind: AdtField
+            name: format
+            size: 48
+        - Field:
+            kind: AdtField
+            name: position
+            size: 8
+- name: "std::fmt::Arguments<'_>"
+  size: 48
+  align: 8
+  kind:
+    Struct:
+      items:
+        - Field:
+            kind: AdtField
+            name: fmt
+            size: 16
+        - Field:
+            kind: AdtField
+            name: pieces
+            size: 16
+        - Field:
+            kind: AdtField
+            name: args
+            size: 16
+- name: "std::fmt::rt::v1::FormatSpec"
+  size: 48
+  align: 8
+  kind:
+    Struct:
+      items:
+        - Field:
+            kind: AdtField
+            name: precision
+            size: 16
+        - Field:
+            kind: AdtField
+            name: width
+            size: 16
+        - Field:
+            kind: AdtField
+            name: flags
+            size: 4
+        - Field:
+            kind: AdtField
+            name: fill
+            size: 4
+        - Field:
+            kind: AdtField
+            name: align
+            size: 1
+  end_padding: 7
+- name: "std::result::Result<std::string::String, std::env::VarError>"
+  size: 32
+  align: 8
+  kind:
+    Enum:
+      discriminant_size: 8
+      variants:
+        - name: Ok
+          size: 24
+          items:
+            - Field:
+                kind: AdtField
+                name: "0"
+                size: 24
+        - name: Err
+          size: 24
+          items:
+            - Field:
+                kind: AdtField
+                name: "0"
+                size: 24
+- name: "unwind::libunwind::_Unwind_Exception"
+  size: 32
+  align: 8
+  kind:
+    Struct:
+      items:
+        - Field:
+            kind: AdtField
+            name: exception_class
+            size: 8
+        - Field:
+            kind: AdtField
+            name: exception_cleanup
+            size: 8
+        - Field:
+            kind: AdtField
+            name: private
+            size: 16

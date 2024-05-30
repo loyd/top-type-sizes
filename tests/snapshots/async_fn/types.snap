@@ -1,0 +1,138 @@
+---
+source: tests/runner.rs
+description: internal representation
+---
+- name: "[async fn body@$DIR/async.rs:8:36: 11:2]"
+  size: 16386
+  align: 1
+  kind:
+    Enum:
+      discriminant_size: 1
+      variants:
+        - name: Unresumed
+          size: 8192
+          items:
+            - Field:
+                kind: Upvar
+                name: arg
+                size: 8192
+                align: 1
+                offset: 0
+        - name: Suspend0
+          size: 16385
+          items:
+            - Field:
+                kind: Upvar
+                name: arg
+                size: 8192
+                align: 1
+                offset: 0
+            - Field:
+                kind: GeneratorLocal
+                name: arg
+                size: 8192
+            - Field:
+                kind: GeneratorLocal
+                name: __awaitee
+                size: 1
+        - name: Returned
+          size: 8192
+          items:
+            - Field:
+                kind: Upvar
+                name: arg
+                size: 8192
+                align: 1
+                offset: 0
+        - name: Panicked
+          size: 8192
+          items:
+            - Field:
+                kind: Upvar
+                name: arg
+                size: 8192
+                align: 1
+                offset: 0
+- name: "std::mem::ManuallyDrop<[u8; 8192]>"
+  size: 8192
+  align: 1
+  kind:
+    Struct:
+      items:
+        - Field:
+            kind: AdtField
+            name: value
+            size: 8192
+- name: "std::mem::MaybeUninit<[u8; 8192]>"
+  size: 8192
+  align: 1
+  kind:
+    Enum:
+      variants:
+        - name: MaybeUninit
+          size: 8192
+          items:
+            - Field:
+                kind: AdtField
+                name: uninit
+                size: 0
+            - Field:
+                kind: AdtField
+                name: value
+                size: 8192
+- name: "[async fn body@$DIR/async.rs:6:17: 6:19]"
+  size: 1
+  align: 1
+  kind:
+    Enum:
+      discriminant_size: 1
+      variants:
+        - name: Unresumed
+          size: 0
+        - name: Returned
+          size: 0
+        - name: Panicked
+          size: 0
+- name: "std::mem::ManuallyDrop<[async fn body@$DIR/async.rs:6:17: 6:19]>"
+  size: 1
+  align: 1
+  kind:
+    Struct:
+      items:
+        - Field:
+            kind: AdtField
+            name: value
+            size: 1
+- name: "std::mem::MaybeUninit<[async fn body@$DIR/async.rs:6:17: 6:19]>"
+  size: 1
+  align: 1
+  kind:
+    Enum:
+      variants:
+        - name: MaybeUninit
+          size: 1
+          items:
+            - Field:
+                kind: AdtField
+                name: uninit
+                size: 0
+            - Field:
+                kind: AdtField
+                name: value
+                size: 1
+- name: "std::task::Poll<()>"
+  size: 1
+  align: 1
+  kind:
+    Enum:
+      discriminant_size: 1
+      variants:
+        - name: Ready
+          size: 0
+          items:
+            - Field:
+                kind: AdtField
+                name: "0"
+                size: 0
+        - name: Pending
+          size: 0

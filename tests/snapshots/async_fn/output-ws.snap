@@ -1,0 +1,21 @@
+---
+source: tests/runner.rs
+description: top-type-sizes -ws
+---
+16386 [async fn body@$DIR/async.rs:8:36: 11:2] align=1
+      1 <discriminant>
+  16385 variant Suspend0
+       8192 arg (upvar) align=1 offset=0
+       8192 arg
+          1 __awaitee
+   8192 variant Unresumed, Returned, Panicked
+       8192 arg (upvar) align=1 offset=0
+
+1 std::task::Poll<()> align=1
+      1 <discriminant>
+      0 variant Ready
+      0 variant Pending
+
+1 [async fn body@$DIR/async.rs:6:17: 6:19] align=1
+      1 <discriminant>
+      0 variant Unresumed, Returned, Panicked

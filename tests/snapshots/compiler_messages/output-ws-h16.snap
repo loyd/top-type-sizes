@@ -1,0 +1,13 @@
+---
+source: tests/runner.rs
+description: top-type-sizes -ws -h16
+---
+7880 {async fn body of run()} align=8
+   7879 variant Suspend0
+       6712 __awaitee align=8 type={async fn body of run()}
+        568 self (upvar) align=8 offset=0
+        568 self
+         24 drain (upvar)
+    592 variant Unresumed
+        568 self (upvar) align=8 offset=0
+         24 drain (upvar)

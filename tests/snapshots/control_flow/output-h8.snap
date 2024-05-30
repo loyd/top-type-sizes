@@ -1,0 +1,7 @@
+---
+source: tests/runner.rs
+description: top-type-sizes -h8
+---
+32 std::ops::ControlFlow<std::option::Option<std::convert::Infallible>, alloc::collections::btree::navigate::LazyLeafHandle<alloc::collections::btree::node::marker::Dying, std::ffi::OsString, std::option::Option<std::ffi::OsString>>> align=8
+     32 variant Continue
+      0 variant Break

@@ -1,0 +1,55 @@
+---
+source: tests/runner.rs
+description: internal representation
+---
+- name: "{async fn body of run()}"
+  size: 7880
+  align: 8
+  kind:
+    Enum:
+      discriminant_size: 1
+      variants:
+        - name: Unresumed
+          size: 592
+          items:
+            - Field:
+                kind: Upvar
+                name: self
+                size: 568
+                align: 8
+                offset: 0
+            - Field:
+                kind: Upvar
+                name: drain
+                size: 24
+        - name: Suspend0
+          size: 7879
+          items:
+            - Field:
+                kind: Upvar
+                name: self
+                size: 568
+                align: 8
+                offset: 0
+            - Field:
+                kind: Upvar
+                name: drain
+                size: 24
+            - Field:
+                kind: GeneratorLocal
+                name: self
+                size: 568
+            - Padding: 1
+            - Field:
+                kind: GeneratorLocal
+                name: coroutine_field3
+                size: 1
+                align: 1
+                local_type: bool
+            - Padding: 6
+            - Field:
+                kind: GeneratorLocal
+                name: __awaitee
+                size: 6712
+                align: 8
+                local_type: "{async fn body of run()}"

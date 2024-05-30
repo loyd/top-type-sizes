@@ -1,0 +1,82 @@
+---
+source: tests/runner.rs
+description: internal representation
+---
+- name: "[async fn body@/home/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-1.24.1/src/net/udp.rs:1345:86: 1350:6]"
+  size: 200
+  align: 8
+  kind:
+    Enum:
+      discriminant_size: 1
+      variants:
+        - name: Unresumed
+          size: 192
+          items:
+            - Padding: 159
+            - Field:
+                kind: AdtField
+                name: buf
+                size: 16
+                align: 8
+            - Padding: 8
+            - Field:
+                kind: AdtField
+                name: self
+                size: 8
+                align: 8
+        - name: Returned
+          size: 192
+          items:
+            - Padding: 159
+            - Field:
+                kind: AdtField
+                name: buf
+                size: 16
+                align: 8
+            - Padding: 8
+            - Field:
+                kind: AdtField
+                name: self
+                size: 8
+                align: 8
+        - name: Panicked
+          size: 192
+          items:
+            - Padding: 159
+            - Field:
+                kind: AdtField
+                name: buf
+                size: 16
+                align: 8
+            - Padding: 8
+            - Field:
+                kind: AdtField
+                name: self
+                size: 8
+                align: 8
+        - name: Suspend0
+          size: 184
+          items:
+            - Field:
+                kind: AdtField
+                name: buf
+                size: 16
+                align: 8
+                offset: 0
+            - Field:
+                kind: AdtField
+                name: __awaitee
+                size: 144
+            - Field:
+                kind: AdtField
+                name: buf
+                size: 16
+            - Field:
+                kind: AdtField
+                name: self
+                size: 8
+            - Field:
+                kind: AdtField
+                name: self
+                size: 8
+  end_padding: 7

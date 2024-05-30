@@ -1,0 +1,18 @@
+---
+source: tests/runner.rs
+description: top-type-sizes
+---
+200 [async fn body@/home/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-1.24.1/src/net/udp.rs:1345:86: 1350:6] align=8
+      1 <discriminant>
+    192 variant Unresumed, Returned, Panicked
+        159 <padding>
+         16 buf align=8
+          8 <padding>
+          8 self align=8
+    184 variant Suspend0
+         16 buf align=8 offset=0
+        144 __awaitee
+         16 buf
+          8 self
+          8 self
+      7 <end padding>

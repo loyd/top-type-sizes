@@ -1,0 +1,28 @@
+---
+source: tests/runner.rs
+description: top-type-sizes -h8
+---
+16386 [async fn body@$DIR/async.rs:8:36: 11:2] align=1
+  16385 variant Suspend0
+       8192 arg (upvar) align=1 offset=0
+       8192 arg
+   8192 variant Unresumed, Returned, Panicked
+       8192 arg (upvar) align=1 offset=0
+
+8192 std::mem::MaybeUninit<[u8; 8192]> align=1
+   8192 variant MaybeUninit
+       8192 value
+
+8192 std::mem::ManuallyDrop<[u8; 8192]> align=1
+   8192 value
+
+1 std::task::Poll<()> align=1
+      0 variant Ready, Pending
+
+1 std::mem::MaybeUninit<[async fn body@$DIR/async.rs:6:17: 6:19]> align=1
+      1 variant MaybeUninit
+
+1 std::mem::ManuallyDrop<[async fn body@$DIR/async.rs:6:17: 6:19]> align=1
+
+1 [async fn body@$DIR/async.rs:6:17: 6:19] align=1
+      0 variant Unresumed, Returned, Panicked

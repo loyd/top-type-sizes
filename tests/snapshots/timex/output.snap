@@ -1,0 +1,39 @@
+---
+source: tests/runner.rs
+description: top-type-sizes
+---
+208 unix::linux_like::linux::gnu::timex align=8
+      4 modes
+      4 <padding>
+      8 offset align=8
+      8 freq
+      8 maxerror
+      8 esterror
+      4 status
+      4 <padding>
+      8 constant align=8
+      8 precision
+      8 tolerance
+     16 time
+      8 tick
+      8 ppsfreq
+      8 jitter
+      4 shift
+      4 <padding>
+      8 stabil align=8
+      8 jitcnt
+      8 calcnt
+      8 errcnt
+      8 stbcnt
+      4 tai
+      4 __unused1
+      4 __unused2
+      4 __unused3
+      4 __unused4
+      4 __unused5
+      4 __unused6
+      4 __unused7
+      4 __unused8
+      4 __unused9
+      4 __unused10
+      4 __unused11

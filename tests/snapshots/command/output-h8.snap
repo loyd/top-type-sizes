@@ -1,0 +1,18 @@
+---
+source: tests/runner.rs
+description: top-type-sizes -h8
+---
+208 std::sys::unix::process::process_common::Command align=8
+     32 env
+     16 cwd
+     16 groups
+     16 program
+     24 args
+     24 argv
+     24 closures
+      8 stdin
+      8 stdout
+      8 stderr
+      8 uid
+      8 gid
+      8 pgroup
