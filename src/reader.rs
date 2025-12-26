@@ -16,7 +16,7 @@ pub fn read(mut rd: impl BufRead) -> eyre::Result<String> {
     }
 
     // Handle a trailing newline.
-    if result.chars().next_back().map_or(false, |c| c == '\n') {
+    if result.ends_with('\n') {
         result.pop();
     }
 

@@ -163,7 +163,7 @@ fn sort_fields_and_remove_paddings(type_: &mut Type) {
 
 /// Removes fields and paddings smaller than `threshold`.
 fn remove_small_fields(type_: &mut Type, threshold: usize) {
-    if type_.end_padding.map_or(false, |p| p < threshold) {
+    if type_.end_padding.is_some_and(|p| p < threshold) {
         type_.end_padding = None;
     }
 
@@ -174,7 +174,7 @@ fn remove_small_fields(type_: &mut Type, threshold: usize) {
     match &mut type_.kind {
         TypeKind::Struct(s) => do_it(&mut s.items),
         TypeKind::Enum(e) => {
-            if e.discriminant_size.map_or(false, |p| p < threshold) {
+            if e.discriminant_size.is_some_and(|p| p < threshold) {
                 e.discriminant_size = None;
             }
 
