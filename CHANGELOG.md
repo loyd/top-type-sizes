@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- next-header -->
 
 ## [Unreleased] - ReleaseDate
+
+## [0.2.1] - 2025-12-26
 ### Changed
 - Improve error handling and note most common causes of parsing failures.
 
@@ -47,7 +49,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release with CHANGELOG.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/loyd/top-type-sizes/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/loyd/top-type-sizes/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/loyd/top-type-sizes/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/loyd/top-type-sizes/compare/v0.1.5...v0.2.0
 [0.1.5]: https://github.com/loyd/top-type-sizes/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/loyd/top-type-sizes/releases/tag/v0.1.4
