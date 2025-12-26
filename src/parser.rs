@@ -180,22 +180,58 @@ fn types(input: &str) -> IResult<&str, Vec<Type>> {
 /// Parses refined (without the prefix) input.
 pub fn parse(input: &str) -> eyre::Result<Vec<Type>> {
     // TODO: check recovery and failures.
-    let (input, types) = types(input)
+    let (rest, types) = types(input)
         .finish()
         .map_err(|err| eyre::eyre!(err.to_string()))?;
 
-    // TODO: better approach?
-    if !input.is_empty() {
-        // Print next N lines.
-        let len = input
-            .split_terminator('\n')
-            .take(10)
-            .fold(0, |sum, line| sum + line.len());
-
-        return Err(eyre::eyre!("cannot parse: \n{}", &input[..len]));
+    if !rest.is_empty() {
+        let pos = input.len() - rest.len();
+        let (error_line_no, context) = format_context(input, pos);
+        return Err(eyre::eyre!(
+            concat!(
+                "cannot parse at line {}:\n{}\n\n",
+                "Make sure the build directory is clean and that the -j1 flag is passed to the compiler.\n",
+                "Run `cargo clean && RUSTFLAGS=-Zprint-type-sizes cargo +nightly build -j1 > type-sizes.txt`.\n",
+                "If the issue persists, please file an issue on GitHub."
+            ),
+            error_line_no,
+            context
+        ));
     }
 
     Ok(types)
+}
+
+fn format_context(input: &str, pos: usize) -> (usize, String) {
+    const CONTEXT_LINES: usize = 10;
+
+    let error_line_no = input[..pos + 1].matches('\n').count();
+    let start_no = error_line_no.saturating_sub(CONTEXT_LINES);
+    let end_no = error_line_no + CONTEXT_LINES;
+    let line_no_width = (end_no + 1).ilog10() as usize + 1;
+
+    let context = input
+        .lines()
+        .skip(start_no)
+        .take(end_no - start_no + 1)
+        .zip(start_no..)
+        .map(|(line, line_no)| {
+            format!(
+                "{prefix}{line_no:>line_no_width$} │ {line}",
+                prefix = if line_no == error_line_no {
+                    ">>> "
+                } else {
+                    "    "
+                },
+                line_no = line_no + 1,
+                line = line,
+                line_no_width = line_no_width
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("\n");
+
+    (error_line_no + 1, context)
 }
 
 #[cfg(test)]
